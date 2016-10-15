@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 20161015095836) do
     t.boolean  "avaibility"
     t.string   "email"
     t.string   "isbn"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "students", force: :cascade do |t|
@@ -35,6 +36,9 @@ ActiveRecord::Schema.define(version: 20161015095836) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "unversity"
+    t.string   "fname"
+    t.string   "lname"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end

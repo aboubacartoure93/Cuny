@@ -18,6 +18,9 @@ class DeviseCreateStudents < ActiveRecord::Migration
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
+      t.string   :unversity
+      t.string   :fname
+      t.string   :lname
 
       ## Confirmable
       # t.string   :confirmation_token
@@ -39,4 +42,18 @@ class DeviseCreateStudents < ActiveRecord::Migration
     # add_index :students, :confirmation_token,   unique: true
     # add_index :students, :unlock_token,         unique: true
   end
+  
+  def self.up
+    change_table :students do |t|
+      t.attachment :profilepic
+      end
+  end
+
+  def self.down
+    remove_attachment :students, :profilepic
+  end
+
+
+
+
 end
