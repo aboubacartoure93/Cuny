@@ -61,18 +61,7 @@ class BooksController < ApplicationController
     end
   end
 
- 
-
-def create
-  @user = Book.create( book_params )
-end
-
-
-
-
-
-
-
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -82,6 +71,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :price, :avaibility, :email, :avatar, :isbn)
+      params.require(:book).permit(:title, :author, :price, :avaibility, :email, :isbn)
     end
 end

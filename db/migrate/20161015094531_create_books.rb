@@ -8,6 +8,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :email
       t.string :isbn
       t.string :description
+      t.attachment :avatar
       t.timestamps null: false
     end
   end

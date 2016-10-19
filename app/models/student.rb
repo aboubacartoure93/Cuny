@@ -6,4 +6,5 @@ class Student < ActiveRecord::Base
 
 validates :email, format: { with: /\.edu\z/, message: "only allows .edu addresses" }
 
+
 end

@@ -5,10 +5,39 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+	<%= javascript_include_tag :defaults %>
+
 </head>
 <body>
+	<header>
+        <h3>CUNYversity</h3> 
+         <nav class="headernav">                  
+            <% if student_signed_in? %>
+                <span>Hello <%= current_student.fname %></span>
+               
+                <%= link_to "Sign out", destroy_student_session_path, :method => :delete %>
 
-<%= yield %>
+            <% end %>  
+            <br>
+        </nav>
+
+
+        <%= nav_bar fixed: :bottom do %>
+    <% menu_group do %>
+        <%= menu_item "Home", root_path %>
+        
+        
+    <% end %>
+    <% menu_group pull: :right do %>
+        <%= menu_item "Edit Profile", edit_student_registration_path(current_student) %>
+        <%= menu_item "Account Settings", edit_student_registration_path(current_student, @account) %>
+        <%= menu_item "Log Out", destroy_student_session_path %>
+    <% end %>
+<% end %>
+
+             
+    </header>
+    <%= yield %>
 
 </body>
 </html>

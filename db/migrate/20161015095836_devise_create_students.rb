@@ -21,6 +21,7 @@ class DeviseCreateStudents < ActiveRecord::Migration
       t.string   :unversity
       t.string   :fname
       t.string   :lname
+      t.attachment :profilepic
 
       ## Confirmable
       # t.string   :confirmation_token

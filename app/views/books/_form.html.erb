@@ -57,11 +57,6 @@
     </div>
     <%=f.error_span(:isbn) %>
   </div>
-  <div>
-    <%= form_for @book, url: books_path, html: { multipart: true } do |form| %>
-  <%= form.file_field :avatar %>
-<% end %>
-  </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
