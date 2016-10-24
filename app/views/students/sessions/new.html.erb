@@ -1,5 +1,5 @@
 <h2>Log in</h2>
-<%= image_tag "image1.png", size: "1265x799" %>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -21,11 +21,6 @@
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
-
-  <div>
-    <%= image_tag "image1.png", size: "1265x799" %>
-  </div>
-
 <% end %>
 
 <%= render "students/shared/links" %>
