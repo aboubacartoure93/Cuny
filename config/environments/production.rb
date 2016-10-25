@@ -62,6 +62,15 @@ config.assets.digest = true
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
+ 
+config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  :address => "127.0.0.1",
+  :port    => 25,
+  :domain  => 'yourdomain.com'
+} 
+
 
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)

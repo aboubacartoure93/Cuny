@@ -66,4 +66,11 @@
     </div>
   </div>
 
+<!-- abou code below*************************************** -->
+
+
+  <%= form_for @book, url: books_path, html: { multipart: true } do |form| %>
+  <%= form.file_field :avatar %>
+  <% end %>  
+
 <% end %>

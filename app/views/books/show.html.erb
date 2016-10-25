@@ -30,3 +30,24 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+
+<!-- ********************* Abou modification a partir en bas****************
+ -->
+
+
+ <div class="p-wrap">
+  <div class="p-title">
+    <h1>Event Hop</h1>
+    <h2>We make planning events around the city fun!</h2>
+  </div>
+  
+   <% @books.each do |book| %>
+  
+  <div class="p-places">
+    <h3><%= book.name %></h3>
+    <%= link_to (image_tag book.avatar.url(:medium)), new_book_path(book, continue: new_book_path(book)) %>
+    <p class="p-description"><%= book.description %></p>
+  </div>
+  <% end %>
+</div>  
+
