@@ -1,20 +1,27 @@
 source 'https://rubygems.org'
 gem'devise' 
 gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+# gem 'less-rails-bootstrap', '~> 3.3', '>= 3.3.5.0'
+#gem 'sprockets', '3.6.3'
+# gem 'sprockets', '~> 3.7', '>= 3.7.1'
+gem 'sprockets', '~> 3.0'
+#gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '5.1.4'
 gem 'vider', github: 'wazery/vider'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'mongoid', '~> 5.1', '>= 5.1.3'
+gem 'mongoid', '~> 6.1.0'
+#gem 'sendgrid-ruby'
+#gem 'sendgrid-ruby'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+# gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -45,7 +52,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

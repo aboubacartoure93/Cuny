@@ -15,8 +15,16 @@
             <% if student_signed_in? %>
                 <span>Hello <%= current_student.email %></span>
                
-                <%= link_to "Sign out", destroy_student_session_path, :method => :delete %>
+                <%= link_to "Sfign out", '/students/sign_out', :method => :delete %>
 
+
+                <% menu_group pull: :right do %>
+                <%= menu_item "All books", books_path(current_student) %>
+
+                <%= menu_item "Edit Profile", edit_student_registration_path(current_student) %>
+                <%= menu_item "Account Settings", edit_student_registration_path(current_student, @account) %>
+                <%= link_to 'Sfign out', '/students/sign_out', :method => :delete %>
+                
             <% end %>  
             <br>
         </nav>
@@ -33,12 +41,7 @@
         
         
     <% end %>
-    <% menu_group pull: :right do %>
-        <%= menu_item "All books", books_path(current_student) %>
-
-        <%= menu_item "Edit Profile", edit_student_registration_path(current_student) %>
-        <%= menu_item "Account Settings", edit_student_registration_path(current_student, @account) %>
-        <%= menu_item "Log Out", destroy_student_session_path %>
+    
     <% end %>
 <% end %>
 

@@ -12,15 +12,17 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'MyMailer'
+   config.mailer_sender = "aboubacartoure93@gmail.com"
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
-
+  config.mailer = 'Devise::Mailer'
+   #config.mailer = "MyMailer"
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+
+  config.secret_key = '8f4234af9ba78666f6c5484a17277f4f44c02b1f4289ea5f30239f02e69636a4985b5fc8f575811f1023ed953540306457733679fc1ccafec0f975128dd73045'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

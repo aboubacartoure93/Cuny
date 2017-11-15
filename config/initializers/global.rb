@@ -1,0 +1,1 @@
+EMAIL_CONFIRMATION_SUBJECT = "Please confirm your email."
