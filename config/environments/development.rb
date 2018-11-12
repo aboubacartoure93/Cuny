@@ -53,7 +53,7 @@ Rails.application.configure do
       domain: 'aboubacartoure.com',
       authentication: "plain",
       user_name: "aboubacartoure93@gmail.com",
-      password: "1Rightnow2",
+      password: "Code&Bonheur1!",
       enable_starttls_auto: true
 }
   config.action_mailer.default_url_options = { host: "localhost:3000" }

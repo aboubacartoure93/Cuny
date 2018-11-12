@@ -2,6 +2,9 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 require 'devise'
+#config/application.rb
+#require "active_storage/engine"
+#require "active_storage/engine"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -32,16 +35,7 @@ module Cuny
 
     # }
 
-#     ActionMailer::Base.smtp_settings = {
-      
-#       :address              => 'smtp.gmail.com',
-#       :domain               => 'aboubacartoure.com',
-#       :port                 => 587,
-#       :user_name            => "aboubacartoure93@gmail.com",
-#       :password             => "WorkParfait1!",
-#       :authentication       => 'plain',
-#       :enable_starttls_auto => true
-# }
+
 
   end
 end

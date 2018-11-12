@@ -1,16 +1,20 @@
 source 'https://rubygems.org'
+gem 'rails', '5.1.4'
+#gem 'rails', '~> 5.2', '>= 5.2.1'
 gem'devise' 
 gem "therubyracer"
 # gem 'less-rails-bootstrap', '~> 3.3', '>= 3.3.5.0'
+gem 'bootstrap-sass', '~> 3.3.5'
 #gem 'sprockets', '3.6.3'
 # gem 'sprockets', '~> 3.7', '>= 3.7.1'
 gem 'sprockets', '~> 3.0'
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.1.4'
+
 gem 'vider', github: 'wazery/vider'
 # Use sqlite3 as the database for Active Record
+gem 'sass-rails', '~> 5.0'
 gem 'sqlite3'
 gem 'mongoid', '~> 6.1.0'
 #gem 'sendgrid-ruby'
@@ -35,6 +39,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem "mini_magick"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

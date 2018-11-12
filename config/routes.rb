@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   #   get "sign_out" => "devise/sessions#destroy"
   # end
 
-
+ #https://myaccount.google.com/lesssecureapps (allowing less secure email with gmail)
 
   #devise_for :users, controllers: { confirmations: 'confirmations' }
   # The priority is based upon order of creation: first created -> highest priority.
