@@ -4,9 +4,15 @@ class BooksController < ApplicationController
   before_action :authenticate_student!
   # GET /books
   # GET /books.json
+  
+  # def index
+  #   @books = Book.all
+  #   #@books = Book.where(follower_id: current_user.id, followed_id: current_user.id)
+  # end
+
   def index
     @books = Book.all
-  end
+   end
 
   # GET /books/1
   # GET /books/1.json
@@ -40,9 +46,6 @@ class BooksController < ApplicationController
     @book = Book.create( book_params )
   end
 
-  
-
-
 
   # def create
   #   @book = Book.new(book_params)
@@ -51,13 +54,9 @@ class BooksController < ApplicationController
   #   respond_with @book
   # end
 
-
-
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   
-
-
   # def update
   #   respond_to do |format|
   #     if @book.update(book_params)
@@ -69,8 +68,6 @@ class BooksController < ApplicationController
   #     end
   #   end
   # end
-
-
 
 def update
   @post = Book.find(params[:id])

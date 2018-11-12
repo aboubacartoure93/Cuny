@@ -1,13 +1,33 @@
 Rails.application.routes.draw do
   
-  devise_for :students, controllers: { confirmations: 'confirmations'
-   }
+  devise_for :students, controllers: { confirmations: 'confirmations'}
+  
   resources :books
   root 'books#index'
   resources :universities 
 
   # get 'students/sign_out' => 'devise/sessions#destroy'
-  get '/logout' => 'devise/sessions#destroy'
+  # get '/logout' => 'devise/sessions#destroy'
+
+  # devise_scope :students do
+  #   delete "sign_out" => "devise/sessions#destroy", :as => :destroy_students_session
+  #   #get "sign_out" => "devise/sessions#destroy"
+  #  #get "logout", to: "devise/sessions#destroy"
+  # end
+  
+  devise_scope :students do
+    get '/students/sign_out' => 'devise/sessions#destroy'
+  end
+
+  devise_scope :students do
+    root to: "devise/sessions#new"
+  end
+
+  # devise_scope :students do 
+  #   get "sign_out" => "devise/sessions#destroy"
+  # end
+
+
 
   #devise_for :users, controllers: { confirmations: 'confirmations' }
   # The priority is based upon order of creation: first created -> highest priority.

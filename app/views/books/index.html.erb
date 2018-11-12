@@ -17,7 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @books.each do |book| %>
+    <% @books.each do |book| %> 
       <tr>
         <td><%= link_to book.id, book_path(book) %></td>
         <td><%= book.title %></td>
