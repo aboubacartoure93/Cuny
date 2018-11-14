@@ -121,11 +121,11 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :price, :avaibility, :email, :avatar, :isbn)
+      params.require(:book).permit(:title, :author, :price, :avaibility, :email, :isbn, :avatar)
     end
 end
 
-
+#params.require(:place).permit(:name, :address, :zipcode, :website, :description, :avatar)
 
 
 

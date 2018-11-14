@@ -3,7 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<%= image_tag "image1.png", size: "1265x799" %>
+
 
 
 <dl class="dl-horizontal">
@@ -19,7 +19,11 @@
   <dd><%= @book.email %></dd>
   <dt><strong><%= model_class.human_attribute_name(:isbn) %>:</strong></dt>
   <dd><%= @book.isbn %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:avatar) %>:</strong></dt>
+  <h4> <%= image_tag @book.avatar.url(:medium) %> </h4>
 </dl>
+
+<!-- <%= image_tag @book.avatar.url(:medium) %> -->
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               books_path, :class => 'btn btn-default'  %>
