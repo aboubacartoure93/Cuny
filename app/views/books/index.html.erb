@@ -1,4 +1,4 @@
-<%- model_class = Book -%>
+ <!-- <%- model_class = Book -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
@@ -14,7 +14,7 @@
       <th><%= model_class.human_attribute_name(:isbn) %></th>
       <th><%= model_class.human_attribute_name(:avatar) %></th>
       <!-- <th><%= model_class.human_attribute_name(:created_at) %></th> -->
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+     <!--   <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -31,7 +31,7 @@
         <td><%= book.avatar %></td>
        </div>
         <!-- <td><%=l book.created_at %></td> -->
-        <td>
+   <!--       <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_book_path(book), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -51,5 +51,37 @@
 
  <!-- this is commment place*************************************** -->
 
- 
+ <!--  <% @books.each do |book| %>
+  <div class="p-places">
+    <h3><%= book.title %></h3>
+    <%= link_to (image_tag book.avatar.url(:medium)), book_path(book, continue: edit_book_path(book)) %>
+    <p class="p-description"><%= book.price %></p>
+  </div>
+  <% end %>
+</div> -->
+
+
+
+<div class="row">
+  <% @books.each do |book|%>
+    <div class="col-sum-6 col-md-3">
+      <div class="thumbnail">
+     <!--   <%= link_to (image_tag book.avatar.url(:medium), class: 'avatar'), book %> -->
+        <%= link_to (image_tag book.avatar.url(:medium)), book_path(book, continue: edit_book_path(book)) %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 

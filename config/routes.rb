@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
   
-  devise_for :students, controllers: { confirmations: 'confirmations'}
-  
-  resources :books
-  root 'books#index'
-  resources :universities 
+  get 'students/show'
 
+  devise_for :students, controllers: { confirmations: 'confirmations'} #good one
+ # devise_for :students, controllers: { sessions: 'students/sessions' }
+  
+  root 'books#index'
+  resources :students
+  resources :universities 
+  
+   
+  #devise_for :students, controllers: { confirmations: 'confirmations'}
+  resources :books do 
+    collection do
+      get 'search'
+      end
+    end
   # get 'students/sign_out' => 'devise/sessions#destroy'
   # get '/logout' => 'devise/sessions#destroy'
 

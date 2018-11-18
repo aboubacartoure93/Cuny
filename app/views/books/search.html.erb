@@ -1,0 +1,11 @@
+
+<div class="row">
+  <% @books.each do |book|%>
+    <div class="col-sum-6 col-md-3">
+      <div class="thumbnail">
+     <!--   <%= link_to (image_tag book.avatar.url(:medium), class: 'avatar'), book %> -->
+        <%= link_to (image_tag book.avatar.url(:medium)), book_path(book, continue: edit_book_path(book)) %>
+      </div>
+    </div>
+  <% end %>
+</div>

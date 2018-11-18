@@ -6,44 +6,22 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 	<%= javascript_include_tag :defaults %>
-
 </head>
+
 <body>
-	<header>
-        <h3>CUNYversity</h3> 
-         <nav class="headernav">                  
-            <% if student_signed_in? %>
-                <span>Hello <%= current_student.email %></span>
-               
-                <%= link_to('Logout', destroy_student_session_path) %>
+	<%= render 'layouts/header' %>
 
-
-                <% menu_group pull: :right do %>
-                <%= menu_item "All books", books_path(current_student) %>
-
-                <%= menu_item "Edit Profile", edit_student_registration_path(current_student) %>
-                <%= menu_item "Account Settings", edit_student_registration_path(current_student, @account) %>
-                
-            <% end %>  
-            <br>
-        </nav>
-
-
-
-
-        <%= nav_bar fixed: :bottom do %>
-    <% menu_group do %>
-        <%= menu_item "Home", root_path %>
-        
-        
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-info") %>
     <% end %>
+   <%= yield %>
+   </div>
+
+
+ 
+ 
+ 
     
-    <% end %>
-<% end %>
-
-             
-    </header>
-    <%= yield %>
-
 </body>
 </html>

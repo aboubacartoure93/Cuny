@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
+	searchkick
 	attr_accessor :avatar
-	has_many :books
+	#has_many :books
 	belongs_to :student
 
 	has_attached_file :avatar, styles: { medium: "300x300#{}", thumb: "100x100#{}", icon: "35x35#{}" }, default_url: "/images/:style/missing.png"

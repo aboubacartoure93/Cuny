@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   include BooksHelper
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_student!
+  before_action :authenticate_student!, except:[:show] #[:index, :show]
   # GET /books
   # GET /books.json
   
@@ -9,6 +9,14 @@ class BooksController < ApplicationController
   #   @books = Book.all
   #   #@books = Book.where(follower_id: current_user.id, followed_id: current_user.id)
   # end
+  def search
+    if params[:search].present?
+      @books = Book.search(params[:search])
+    else
+      @books = Book.all
+    end
+  end
+
 
   def index
     @books = Book.all
@@ -21,7 +29,8 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = Book.new
+    @book = current_student.books.build
+    #@book = Book.new
   end
 
   # GET /books/1/edit
@@ -48,7 +57,8 @@ class BooksController < ApplicationController
   # end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_student.books.build(book_params)
+    #@book = Book.new(book_params)
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
@@ -93,9 +103,6 @@ def update
     render 'edit'
   end
 end
-
-
-
 
 
 
