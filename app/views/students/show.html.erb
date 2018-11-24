@@ -1,12 +1,36 @@
-<h1><% @current_student.name%> Account</h1>
+<h2><!--<%= @current_student.name%>--> Profile</h2>
 
-
-
-
+<!-- 
 <% @current_student.books.each do |book| %>
 	<div class="p-places">
 		<h3><%= book.title %></h3>
 		<%= link_to (image_tag book.avatar.url(:medium)), book_path(book) %>
 		<p class="p-description"><%= book.price %></p>
 	</div>
+<% end %> -->
+<% if @student.profilepic? %>
+    <div class="profilepic"> <%= image_tag @student.profilepic.url(:medium) %></div><br>
 <% end %>
+
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	<ul class="nav navbar-nav">
+		<li><%= link_to "Edit Profile", edit_student_registration_path(current_student) %></li>
+	</ul>
+</div>
+<div class="row">
+	<h4> Your Posted Books </h4>
+  <% @current_student.books.each do |book|%>
+    <div class="col-sum-6 col-md-3">
+      <div class="thumbnail">
+      	<p class="p-description">
+     <!--   <%= link_to (image_tag book.avatar.url(:medium), class: 'avatar'), book %> -->
+        <%= link_to (image_tag book.avatar.url(:medium)), book_path(book, continue: edit_book_path(book)) %>
+    	</p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+

@@ -1,21 +1,41 @@
 Rails.application.routes.draw do
   
   get 'students/show'
-
-  devise_for :students, controllers: { confirmations: 'confirmations'} #good one
+  devise_for :students, controllers: { registrations: 'registrations' }
+  resources :students #, only:[:update, :show, :edit]
  # devise_for :students, controllers: { sessions: 'students/sessions' }
   
   root 'books#index'
-  resources :students
+  
   resources :universities 
   
-   
-  #devise_for :students, controllers: { confirmations: 'confirmations'}
   resources :books do 
     collection do
       get 'search'
       end
-    end
+  end
+
+  devise_scope :students do
+    get '/students/sign_out' => 'devise/sessions#destroy'
+    get '/students' => 'devise/registrations#update'
+  end
+
+  devise_scope :students do
+    root to: "devise/sessions#new"
+  end
+
+
+  # resources :students, only:[:update, :show]
+  
+  #devise_for :students#, controllers: #{ registrations: 'students/registrations'} 
+    #as :student do 
+      #get '/students' => 'devise/registrations#edit'
+  #end 
+
+
+ #good one
+  #devise_for :students, controllers: { registrations: 'registrations'}
+  
   # get 'students/sign_out' => 'devise/sessions#destroy'
   # get '/logout' => 'devise/sessions#destroy'
 
@@ -25,19 +45,11 @@ Rails.application.routes.draw do
   #  #get "logout", to: "devise/sessions#destroy"
   # end
   
-  devise_scope :students do
-    get '/students/sign_out' => 'devise/sessions#destroy'
-  end
-
-  devise_scope :students do
-    root to: "devise/sessions#new"
-  end
+  
 
   # devise_scope :students do 
   #   get "sign_out" => "devise/sessions#destroy"
   # end
-
- #https://myaccount.google.com/lesssecureapps (allowing less secure email with gmail)
 
   #devise_for :users, controllers: { confirmations: 'confirmations' }
   # The priority is based upon order of creation: first created -> highest priority.

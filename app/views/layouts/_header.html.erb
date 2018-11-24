@@ -20,9 +20,11 @@
 	      			<%= link_to "All Books", root_path, class: "navbar-brand" %>
 	      			<li><%= link_to "Sell your Book", new_book_path, class: "active" %></li>
 	      			<li><%= link_to "Buy books", books_path(current_student) %></li>
-	      			<li><%= link_to "Account", edit_student_registration_path %></li>
+	      			<!-- <li><%= link_to "Account", edit_student_registration_path %></li>  -->
+	      			<li><%= link_to "my profile", student_path(current_student) %></li>
 	      			<li><%= link_to "Logout", destroy_student_session_path %></li>
-	      			<h4>Hello <%= current_student.name %></h4>
+	      			<!-- <h4>Hello <%= current_student.name %></h4> -->
+	      			<h4>Hello <%= current_student.lname %></h4>
 	      			
 	      		<% end %>
 			</ul>
