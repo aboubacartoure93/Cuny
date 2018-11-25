@@ -21,14 +21,17 @@
 @import "bootstrap";
 
 body {
-	background-color: #F7F7F7;
+	
 	font-family: 'Josefin Sans', sans-serif;
 	color: #00476B;
 }
 body {
     
-    background-image: url(/assets/bc.jpg);
-    background-color: #87CEFA;
+    /*background-image: url(/assets/bc.jpg);*/
+    /*background-color: #87CEFA;*/
+    /*background-color: #00FFFF;*/
+   /* background-color: #00e6e6;*/
+    background-color: #00E5E5;
     background-repeat: no-repeat;
     background-size: 1521.82px 862.73px;
 }
@@ -58,20 +61,20 @@ body {
 	color: white;
 }
 
-.joinleave{
+/*.joinleave{
 	font-size: 1.5em;
-	/*margin-left: 20%;*/
+	margin-left: 20%;
 	font-family: 'Arial';
 }
-
-.joinleave a{
+*/
+/*.joinleave a{
 	color: #1FE023;
 }
 
 #join a{
 	font-size: 1.5em;
 	color: #1FE023;
-}
+}*/
 
 /************* Notices ************/
 
@@ -143,19 +146,19 @@ footer{
 
 /************* User Profile Page ************/
 
-.container{
+/*.container{
 	padding-top: 4em;
 }
-
-.event_info{
+*/
+/*.event_info{
 	text-align: right;
-}
+}*/
 
-.event_title{
+/*.event_title{
 	font-family: 'Josefin Sans';
 	font-size: 4em;
-	/*margin-left: 12em;*/
-}
+	margin-left: 12em;
+}*/
 
 .profilepic{
 	padding: 2em;
@@ -244,13 +247,6 @@ footer{
   	border-radius: 20px;
   	font-size: 2em;
 }
-/*************** Devise Forms  **************/
-
-
-/*************** Countdown Clock  **************/
-
-
-/*************** Countdown Clock  **************/
 
 
 

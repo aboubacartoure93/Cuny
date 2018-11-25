@@ -18,9 +18,15 @@ class BooksController < ApplicationController
   end
 
 
+  # def index
+  #   @books = Book.all
+  #  end
+
+
   def index
-    @books = Book.all
-   end
+   # @book = Book.posts_by_not_current_student(current_student)
+   @books = Book.where.not(student_id: current_student.id)
+  end
 
   # GET /books/1
   # GET /books/1.json

@@ -7,12 +7,12 @@
       </div>
       <div class="panel-body">
         <ul>
-        <% @book.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+          <% @book.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
         </ul>
       </div>
-    </div>
+    </div> 
   <% end %>
 
   <div class="form-group">
@@ -65,11 +65,11 @@
     <%=f.error_span(:isbn) %>
   </div>
 
-  <div>
-    <%= f.label :avatar, :class => 'control-label col-lg-2' %>
-  </div>
-  <div>
-  <%= f.file_field :avatar, :required => true %>
+  <div class="form-group">
+    <%= f.label :Picture, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-10"> <!-- class="col-sm-6" -->
+      <%= f.file_field :avatar, :required => true, autofocus: true, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">

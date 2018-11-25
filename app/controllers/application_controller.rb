@@ -8,18 +8,25 @@ class ApplicationController < ActionController::Base
   #before_action :configure_permitted_parameters, if: :devise_controller?
 
 
+
+
+
+  def index
+    @books = Book.all
+   end
+
+
+
+
+
+
   protected
 
 
   def account_update_params
-  devise_parameter_sanitizer.sanitize(:account_update)
- end
-
-
-
-
+    devise_parameter_sanitizer.sanitize(:account_update)
+  end
  
-
   def store_location
 		puts "Storing: #{params[:continue]}"
 	    if params[:continue] # =~ /\/(events\/[0-9])\z/ # safelist
@@ -33,14 +40,9 @@ class ApplicationController < ActionController::Base
 	    session.delete(:continue) || root_path
 	end
 
-
-
   def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password) }
         devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:fname, :lname, :name, :email, :password, :current_password, :password_confirmation, :profilepic) }
   end
-
-               #:email, :password, :password_confirmation, :current_password, :fname, :lname, :profilepic, :name
-  
 
 end

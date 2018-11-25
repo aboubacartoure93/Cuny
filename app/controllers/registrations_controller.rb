@@ -27,14 +27,14 @@ class RegistrationsController < Devise::RegistrationsController
 
 
 
- def edit
-  super
-    # if @student.update(update_params)
-    #   redirect_to @student, notice: 'Profile Updated'
-    # else
-    #   render :edit
-    # end
-  end    
+ # def edit
+ #  super
+ #    if @student.update(update_params)
+ #      redirect_to @student, notice: 'Profile Updated'
+ #    else
+ #      render :edit
+ #    end
+ #  end    
 
 
 

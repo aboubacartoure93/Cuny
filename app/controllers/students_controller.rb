@@ -11,13 +11,13 @@ class StudentsController < ApplicationController
   end
 
 
-  def update
-    if @student.update(user_params)
-      redirect_to @student, notice: 'Profile Updated'
-    else
-      render :edit
-    end
-  end    
+  # def update
+  #   if @student.update(user_params)
+  #     redirect_to @student, notice: 'Profile Updated'
+  #   else
+  #     render :edit
+  #   end
+  # end     
 
 
   # @place = @event.place
