@@ -10,6 +10,16 @@ class StudentsController < ApplicationController
    @book = @current_student.books
   end
 
+  # def index
+  #   @books = Book.all
+  #  end
+
+  #  def index
+  #  # @book = Book.posts_by_not_current_student(current_student)
+  #  @books = Book.where.not(student_id: current_student.id)
+  # end
+
+
 
   # def update
   #   if @student.update(user_params)

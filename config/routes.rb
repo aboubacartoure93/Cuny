@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :students #, only:[:update, :show, :edit]
  # devise_for :students, controllers: { sessions: 'students/sessions' }
   
-  root 'books#index'
+  # root 'books#index'
+  root 'books#home'
   
   resources :universities 
   
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
   devise_scope :students do
     root to: "devise/sessions#new"
   end
-
+ 
 
   # resources :students, only:[:update, :show]
   

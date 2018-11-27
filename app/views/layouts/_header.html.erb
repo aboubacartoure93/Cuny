@@ -1,6 +1,6 @@
 <h3>CUNYversity</h3> 
 <% if student_signed_in? %>
-<h4>Hello <%= current_student.fname %></h4>
+	<h4>Hello <%= current_student.fname %></h4>
 <% end %>
 
 <nav class= "navbar navbar-default" role="navigation">   <!-- <nav class="headernav">  -->
@@ -27,6 +27,8 @@
 	      			<li><%= link_to "my profile", student_path(current_student) %></li>
 	      			<li><%= link_to "Logout", destroy_student_session_path %></li>
 	      			<!-- <h4>Hello <%= current_student.name %></h4> -->
+	      		<% else %>
+	      			<li><%= link_to('LOGIN', new_student_session_path)  %>
 	      		<% end %>
 			</ul>
 			
