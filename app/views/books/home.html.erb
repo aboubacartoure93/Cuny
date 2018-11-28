@@ -1,29 +1,28 @@
-
+<% if student_signed_in? %>
  <%- model_class = Student -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.update', 'For Sale'] %></h1>
+  <h1><%=t '.title', :default => [:'helpers.titles.update', 'All Books'] %></h1>
 </div>
 
-
-<% if student_signed_in? %>
-	<% @books.each do |book|%>
-
-	<div class="row">
-	  
-	    <div class="col-sum-6 col-md-3">
-	      <div class="thumbnail">
-	     <!--   <%= link_to (image_tag book.avatar.url(:medium), class: 'avatar'), book %> -->
-	        <%= link_to (image_tag book.avatar.url(:medium)), book_path(book, continue: edit_book_path(book)) %>
-	      </div>
-	    </div>
-	  <% end %>
-	</div>
+<% @books.each do |book|%>	  
+    <div class="col-sum-6 col-md-3">
+      <div class="thumbnail">
+     <!--   <%= link_to (image_tag book.avatar.url(:medium), class: 'avatar'), book %> -->
+        <%= link_to (image_tag book.avatar.url(:medium)), book_path(book, continue: edit_book_path(book)) %>
+      </div>
+    </div>
+  <% end %>
 <% end %>
 
 <% if !student_signed_in? %>
+<%- model_class = Student -%>
+	<div class="page-header">
+	  <h1><%=t '.title', :default => [:'helpers.titles.update', 'For Sale'] %></h1>
+	</div>
+
 	<% @books.each do |book|%>
 
-	<div class="row">
+	<!-- <div class="row"> -->
 	  
 	    <div class="col-sum-6 col-md-3">
 	      <div class="thumbnail">
@@ -31,6 +30,11 @@
 	        <%= link_to (image_tag book.avatar.url(:medium)), new_student_session_path %>
 	      </div>
 	    </div>
-	  <% end %>
-	</div>
+	<% end %>
 <% end %>
+
+
+
+
+<!-- New test below --------------------- -->
+

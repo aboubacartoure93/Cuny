@@ -5,17 +5,14 @@
 </div>
 
 <% @books.each do |book|%>
-
-<div class="row">
-  
-    <div class="col-sum-6 col-md-3">
-      <div class="thumbnail">
-     <!--   <%= link_to (image_tag book.avatar.url(:medium), class: 'avatar'), book %> -->
-       <td> <%= link_to (image_tag book.avatar.url(:medium)), book_path(book, continue: edit_book_path(book)) %> </td>
-        <p> <%= book.title %></p>
-        <p class="p-description">$<%= book.price %></p>
-      </div>
+  <div class="col-sum-6 col-md-3">
+    <div class="thumbnail">
+   <!--   <%= link_to (image_tag book.avatar.url(:medium), class: 'avatar'), book %> -->
+      <td> <%= link_to (image_tag book.avatar.url(:medium)), book_path(book, continue: edit_book_path(book)) %> </td>
+      <p> <%= book.title %></p>
+      <p>$<%= book.price %></p>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
+
 

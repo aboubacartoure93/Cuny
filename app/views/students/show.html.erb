@@ -3,14 +3,7 @@
   <h1><%=t '.title', :default => [:'helpers.titles.update', 'Your Profile'] %></h1>
 </div>
 
-<!-- 
-<% @current_student.books.each do |book| %>
-	<div class="p-places">
-		<h3><%= book.title %></h3>
-		<%= link_to (image_tag book.avatar.url(:medium)), book_path(book) %>
-		<p class="p-description"><%= book.price %></p>
-	</div>
-<% end %> -->
+
 <% if @student.profilepic? %>
     <div class="profilepic"> <%= image_tag @student.profilepic.url(:medium) %></div><br>
 <% end %>
@@ -21,6 +14,7 @@
 		<li><%= link_to "Edit Profile", edit_student_registration_path(current_student) %></li>
 	</ul>
 </div>
+
 <div class="row">
 	<h4> Your Posted Books </h4>
   <% @current_student.books.each do |book|%>
