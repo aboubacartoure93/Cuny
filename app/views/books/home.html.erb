@@ -1,8 +1,8 @@
 <% if student_signed_in? %>
- <%- model_class = Student -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.update', 'All Books'] %></h1>
-</div>
+ 	<%- model_class = Student -%>
+	<div class="page-header">
+		<h1><%=t '.title', :default => [:'helpers.titles.update', 'All Books'] %></h1>
+	</div>
 
 	<% @books.each do |book|%>	
 	<!-- <div class="p-wrap"> -->  
@@ -25,7 +25,7 @@
 
 
 <% if !student_signed_in? %>
-<%- model_class = Student -%>
+	<%- model_class = Student -%>
 	<div class="page-header">
 	  <h1><%=t '.title', :default => [:'helpers.titles.update', 'For Sale'] %></h1>
 	</div>
@@ -54,7 +54,7 @@
 
 
 
-
+	<%= will_paginate @books, renderer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer", inner_window: 1, outer_window: 0 %>
 
 
 

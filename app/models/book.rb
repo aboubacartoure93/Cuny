@@ -13,7 +13,7 @@ class Book < ActiveRecord::Base
   	scope :books_by_not_current_student, ->(student) { where.not(student: student) }
 
 
-
+  	# CONDITION = %W{ New Used_like_new Used_very_good Used_acceptable Used_fair}
 
 
 

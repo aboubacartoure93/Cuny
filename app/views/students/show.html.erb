@@ -1,29 +1,67 @@
-<%- model_class = Student -%>
+
+
+
+<!-- ********************* Abou modification a partir en bas****************
+ -->
+
+ <%- model_class = Student -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.update', 'Your Profile'] %></h1>
+  <h1><%=t '.title', :default => [:'helpers.titles.update', 'For Sale'] %></h1>
 </div>
-
-
-<% if @student.profilepic? %>
+ 
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <% if @student.profilepic? %>
     <div class="profilepic"> <%= image_tag @student.profilepic.url(:medium) %></div><br>
 <% end %>
 
-
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	<ul class="nav navbar-nav">
-		<li><%= link_to "Edit Profile", edit_student_registration_path(current_student) %></li>
-	</ul>
+  <ul class="nav navbar-nav">
+    <li><%= link_to "Edit Profile", edit_student_registration_path(current_student) %></li>
+  </ul>
 </div>
 
+        <div class="table-responsive"></div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><strong>First name:</strong></td>
+              <td><%= @student.fname %> </td>
+            </tr>
+            <tr>
+              <td><strong>Last name:</strong></td>
+              <td><%= @student.lname %> </td>
+            </tr>
+            <tr>
+              <td><strong>Email:</strong></td>
+              <td><%=  @student.email %> </td>
+            </tr>
+
+          </tbody>
+        </table>
+        
+      </div>
+
+    </div>
+  </div>
+
+</div>
+ 
+
+
+
+
 <div class="row">
-	<h4> Your Posted Books </h4>
+  <h4> Your Posted Books </h4>
   <% @current_student.books.each do |book|%>
     <div class="col-sum-6 col-md-3">
       <div class="thumbnail">
-      	<p class="p-description">
+        <p class="p-description">
      <!--   <%= link_to (image_tag book.avatar.url(:medium), class: 'avatar'), book %> -->
         <%= link_to (image_tag book.avatar.url(:medium)), book_path(book, continue: edit_book_path(book)) %>
-    	</p>
+      </p>
       </div>
     </div>
   <% end %>

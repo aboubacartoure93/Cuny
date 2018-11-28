@@ -20,7 +20,7 @@ gem 'mongoid', '~> 6.1.0'
 #gem 'sendgrid-ruby'
 #gem 'sendgrid-ruby'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+#gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -45,6 +45,10 @@ gem "mini_magick"
 gem 'searchkick'
 
 gem "bulma-rails", "~> 0.7.2"
+
+gem 'will_paginate'
+gem 'api-pagination', '~> 4.8', '>= 4.8.1'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

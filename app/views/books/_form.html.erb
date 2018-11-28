@@ -39,18 +39,34 @@
     <%=f.error_span(:price) %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :available, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-       <%= f.text_field :avaibility, :class => 'form-control' %> 
-     <!--  <%= f.check_box_tag :avaibility, 'accepted', false, abled: true %> -->
 
+
+
+
+
+<div class="form-group">
+      <%= f.label "Condition", class: 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= f.select(:condition, options_for_select([['New', 'new'], ['Used like new', 'Used like new'],
+        ['Used very good', 'Used very good'], ['Used acceptable Used fair', 'Used acceptable Used fair'] ]), { include_blank: true }) %>
+      </div>
+    </div>
+
+
+  <div class="form-group">
+    <%= f.label :available_now, :class => 'control-label col-lg-2' %>
+     
+     <div class="col-lg-10">
+     <%= f.radio_button :avaibility, 'true' %> 
+     <%= label :true, 'yes' %>
+      <%= f.radio_button :avaibility, 'false', :checked => true %>
+      <%= label :false, 'no' %>
     </div>
     <%=f.error_span(:avaibility) %>
   </div>
 
   <div class="form-group">
-    <%= f.label :email, :class => 'control-label col-lg-2' %>
+    <%= f.label :Seller_email, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :email, :class => 'form-control' %>
     </div>

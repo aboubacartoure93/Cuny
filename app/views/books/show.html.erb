@@ -26,10 +26,24 @@
               <td><strong>Price:</strong></td>
               <td>$ <%=  @book.price %> </td>
             </tr>
+
+
             <tr>
-              <td><strong>Available:</strong></td>
-              <td><%= @book.avaibility%> </td>
+              <td><strong>Available Now:</strong></td>
+              <% if @book.avaibility? %>
+                <td> Yes </td>
+              <% else %>
+                <td> No </td>
+              <% end %>
             </tr>
+
+
+            <tr>
+              <td><strong>Condition:</strong></td>
+              <td><%= @book.condition %> </td>
+            </tr>
+            <tr>
+
             <tr>
               <td><strong>isbn:</strong></td>
               <td><%= @book.isbn %> </td>

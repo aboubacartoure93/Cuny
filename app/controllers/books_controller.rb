@@ -20,13 +20,13 @@ class BooksController < ApplicationController
 
 
   def home
-    @books = Book.all
+    @books = Book.all.order("created_at DESC").paginate(page: params[:page], per_page: 8)
   end
 
 
   def index
    # @book = Book.posts_by_not_current_student(current_student)
-   @books = Book.where.not(student_id: current_student.id)
+   @books = Book.where.not(student_id: current_student.id).order("created_at DESC").paginate(page: params[:page], per_page: 8)
   end
 
   # GET /books/1
@@ -108,7 +108,7 @@ end
     # Record.find_by(id: params[:id])
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :price, :avaibility, :email, :isbn, :avatar)
+      params.require(:book).permit(:title, :author, :price, :avaibility, :email, :isbn, :avatar, :condition)
     end
   end
 
