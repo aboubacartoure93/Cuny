@@ -50,9 +50,17 @@ end
   end
 
   # GET /books/1/edit
-  def edit
+  # def edit
 
+  # end
+
+  def edit
+    @student = current_student
+    @book = Book.find(params[:id])
   end
+
+
+
 
 
    def create
@@ -71,15 +79,47 @@ end
  
 
 
-def update
-  @post = Book.find(params[:id])
+# def update
+#   @student = current_student
+#   # @post = Book.find(params[:id])
+#   @task = @student.Book.find(params[:id])
 
-  if @book.update(book_params)
-    redirect_to action: :show, id: @book.id
-  else
-    render 'edit'
-  end
+#   if @book.update(book_params)
+#     redirect_to action: :show, id: @book.id
+#   else
+#     render 'edit'
+#   end
+# end
+
+def update
+  @book = Book.find(params[:id])
+  # @book.update(book_params)
+   respond_to do |format|
+      if @book.update(book_params)
+        format.html { redirect_to book_path(@book), notice: 'Book was successfully updated.' }
+        format.json { render :show, status: :created, location: @book }
+      else
+        format.html { render :new }
+        format.json { render json: @book.errors, status: :unprocessable_entity }
+      end
+    end
+  # redirect_to book_path(@book)
 end
+
+
+
+
+# def update
+#     @user = current_user
+#     @task = @user.task.find(params[:id])
+#     if @task.update_attributes(task_params)
+#       flash[:success] = "Task updated!"
+#       redirect_to user_tasks_path(current_user)
+#     else
+#       render action: :edit
+#     end
+#   end
+
 
 
 
@@ -88,12 +128,32 @@ end
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
+    @book = Book.find(params[:id])
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
+      if @book.destroy
+      format.html { redirect_to student_path, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
+      # redirect_to book_path(@book)
+      end
     end
   end
+
+
+
+
+# def destroy
+
+#     @book = Book.find(params[:id])
+#     @book.destroy
+
+#     respond_to do |format|
+#       format.js
+#     end
+#   end
+
+
+
 
 
   private
