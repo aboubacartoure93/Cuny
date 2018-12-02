@@ -21,6 +21,17 @@ class StudentsController < ApplicationController
 
 
 
+  # class UsersController < ApplicationController ------------------- New Try chat----- below ------
+  # before_filter :authenticate_user!
+
+  def index
+      @students = Student.where.not("id = ?",current_student.id).order("created_at DESC")
+      @conversations = Conversation.involving(current_student).order("created_at DESC")
+  end
+
+
+# ------------------------ up to here -------------------------------
+
   # def update
   #   if @student.update(user_params)
   #     redirect_to @student, notice: 'Profile Updated'
@@ -46,6 +57,15 @@ class StudentsController < ApplicationController
 #     redirect_to edit_student_registration_path
 #   end
 # end
+
+
+
+  def name
+    name = fname + ' '
+    # name += "#{middle_initial}. " unless middle_initial.nil?
+    name += lname
+  end
+
 
 
 

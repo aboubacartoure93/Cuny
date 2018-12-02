@@ -16,6 +16,12 @@ Rails.application.routes.draw do
       end
   end
 
+   resources :conversations do
+    resources :messages
+   end
+
+
+
   devise_scope :students do
     get '/students/sign_out' => 'devise/sessions#destroy'
     get '/students' => 'devise/registrations#update'
@@ -25,6 +31,22 @@ Rails.application.routes.draw do
     root to: "devise/sessions#new"
   end
  
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
 
   # resources :students, only:[:update, :show]
   

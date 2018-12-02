@@ -5,6 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    super
     # add custom create logic here
   end
 

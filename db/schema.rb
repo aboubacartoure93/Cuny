@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181128134448) do
+ActiveRecord::Schema.define(version: 20181129235411) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -28,6 +28,25 @@ ActiveRecord::Schema.define(version: 20181128134448) do
     t.datetime "updated_at", null: false
     t.integer "student_id"
     t.string "condition"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.integer "conversation_id"
+    t.integer "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["student_id"], name: "index_messages_on_student_id"
   end
 
   create_table "models", force: :cascade do |t|
