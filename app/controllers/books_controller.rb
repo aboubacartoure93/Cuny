@@ -41,7 +41,26 @@ class BooksController < ApplicationController
 
   def show
   @book = Book.find(params[:id])
-end
+
+  @students = Student.where.not("id = ?",current_student.id).order("created_at DESC")
+  @conversations = Conversation.involving(current_student).order("created_at DESC")
+  # @place = @event.place
+  #@student = @book.student
+  
+  end
+
+
+  # @conversation = Conversation.find(params[:conversation_id])
+  #   @message = @conversation.messages.build(message_params)
+  #   @message.student_id = current_student.id
+  #   @message.save!
+
+  #   @path = conversation_path(@conversation)
+
+
+
+
+
 
   # GET /books/new
   def new
@@ -171,6 +190,22 @@ end
       params.require(:book).permit(:title, :author, :price, :avaibility, :email, :isbn, :avatar, :condition)
     end
   end
+
+
+
+# --------------------- New try betwnen thsu ---------------------
+    def conversation_params
+     params.permit(:sender_id, :recipient_id)
+    end
+
+
+  def interlocutor(conversation)
+    current_student == conversation.recipient ? conversation.sender : conversation.recipient
+  end
+
+# --------------------- New try betwnen thsu ---------------------
+
+
 
 
   # POST /books

@@ -4,6 +4,11 @@ module BooksHelper
     params.require(:book).permit(:title, :avatar)
   end
 
+
+  def conversation_interlocutor(conversation)
+    conversation.recipient == current_student ? conversation.sender : conversation.recipient
+  end
+
 end
 
 # module PostsHelper

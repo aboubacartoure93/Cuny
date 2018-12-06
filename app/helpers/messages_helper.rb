@@ -1,6 +1,8 @@
 module MessagesHelper
 # end
 
+
+
 # module MessagesHelper
   def self_or_other(message)
     message.student == current_student ? "self" : "other"
@@ -10,3 +12,6 @@ module MessagesHelper
     message.student == message.conversation.sender ? message.conversation.sender : message.conversation.recipient
   end
 end
+
+
+ 

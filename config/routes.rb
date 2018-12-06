@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   resources :universities 
   
   resources :books do 
+    resources :conversations do
+      resources :messages
+    end
     collection do
       get 'search'
-      end
+    end
   end
 
    resources :conversations do
@@ -35,11 +38,11 @@ Rails.application.routes.draw do
 
 
 
-
+# get 'users/:id/user_posts' => 'users#user_posts', :as => :custom_user_posts
 
  
 
-
+# get 'students/:id/student_messages' => 'students#students_messages', :as => :custom_student_messages
 
 
 

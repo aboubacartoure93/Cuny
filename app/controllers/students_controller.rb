@@ -2,27 +2,22 @@ class StudentsController < ApplicationController
   before_action :authenticate_student!  
   before_action :set_student, only:[:show, :edit, :update, :destroy]
 
-  def show
-  # @student = Student.find(params[:id])
-   @student = current_student 
-   #@books = @student.books
-   #@book = current_student.books
-   @book = @current_student.books
-  end
-
-  # def index
-  #   @books = Book.all
-  #  end
-
-  #  def index
-  #  # @book = Book.posts_by_not_current_student(current_student)
-  #  @books = Book.where.not(student_id: current_student.id)
+  # def show
+  
+  #  @student = current_student 
+  
+  #  @book = @current_student.books
   # end
 
+def show
+   @student = current_student
+   @book = @current_student.books
+  # @student = Student.find(params[:id])
+  # @book = Book.find(params[:id])
+
+end
 
 
-  # class UsersController < ApplicationController ------------------- New Try chat----- below ------
-  # before_filter :authenticate_user!
 
   def index
       @students = Student.where.not("id = ?",current_student.id).order("created_at DESC")
@@ -30,33 +25,11 @@ class StudentsController < ApplicationController
   end
 
 
-# ------------------------ up to here -------------------------------
 
-  # def update
-  #   if @student.update(user_params)
-  #     redirect_to @student, notice: 'Profile Updated'
-  #   else
-  #     render :edit
-  #   end
-  # end     
-
-
-  # @place = @event.place
-  #   @post = Post.new
      
   def edit
 
-  end #student_registration_path
-
-#   def edit
-#   if current_student.update_attributes(student_params)
-#     flash[:notice] = "Student information updated"
-#     redirect_to edit_student_registration_path
-#   else
-#     flash[:error] = "Invalid student information"
-#     redirect_to edit_student_registration_path
-#   end
-# end
+  end 
 
 
 
@@ -82,6 +55,3 @@ class StudentsController < ApplicationController
 
 end
 
-# def set_course
-#  @course = Course.find(params[:course_id])
-# end

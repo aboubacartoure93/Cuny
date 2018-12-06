@@ -6,7 +6,7 @@
 
  <%- model_class = Student -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.update', 'For Sale'] %></h1>
+  <h1><%=t '.title', :default => [:'helpers.titles.update', 'My Profile'] %></h1>
 </div>
  
 <div class="panel panel-default">
@@ -20,6 +20,7 @@
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   <ul class="nav navbar-nav">
     <li><%= link_to "Edit Profile", edit_student_registration_path(current_student) %></li>
+    <li><%= link_to "Your Conversations", students_path(current_student) %></li>
   </ul>
 </div>
 

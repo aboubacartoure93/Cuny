@@ -1,3 +1,16 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "chat.js" %>
+<% end %>
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "books.js" %>
+<% end %>
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "create.js.erb" , skip_pipeline: true %>
+<% end %>
+
+
 <!-- ********************* Abou modification a partir en bas****************
  -->
 
@@ -74,30 +87,20 @@
                           :method => 'delete',
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                           :class => 'btn btn-danger' %>
+  
+  
 
-          <% end %>
-
-
-
-
+  <% end %>
 
 
 
 
+<!-- --------------- New Code below -------------------------- -->
 
+<%= @book.student.name %> 
 
-
-
-
-
-
-
-
-
-
-
-
-
+<%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                              "data-sid" => current_student.id, "data-rip" => @book.student.id %>
 
 
 
