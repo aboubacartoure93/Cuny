@@ -9,19 +9,21 @@ Rails.application.routes.draw do
   root 'books#home'
   
   resources :universities 
+
+  resources :conversations do
+    resources :messages
+   end
   
-  resources :books do 
-    resources :conversations do
-      resources :messages
-    end
+  resources :books do
+    resources :conversations #do
+      #resources :messages
+    #end
     collection do
       get 'search'
     end
   end
 
-   resources :conversations do
-    resources :messages
-   end
+   
 
 
 

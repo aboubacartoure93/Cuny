@@ -1,9 +1,6 @@
 class Student < ActiveRecord::Base
 
-  def name
-    [fname, lname].compact.join(' ')
-  end
-
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -21,6 +18,13 @@ class Student < ActiveRecord::Base
   # has_attached_file :profilepic, styles: { medium: "300x300#", thumb: "100x100#", icon: "35x35#" }, default_url: "/images/:style/missing.jpg"
   has_attached_file :profilepic, styles: { medium: "300x300#", thumb: "100x100#", icon: "35x35#" }, default_url: "/images/:style/missing.jpg"
   validates_attachment_content_type :profilepic, content_type: /\Aimage\/.*\Z/
+
+
+  def name
+    [fname, lname].compact.join(' ')
+  end
+
+
 
 end  
 

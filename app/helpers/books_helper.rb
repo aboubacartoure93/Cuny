@@ -5,9 +5,9 @@ module BooksHelper
   end
 
 
-  def conversation_interlocutor(conversation)
-    conversation.recipient == current_student ? conversation.sender : conversation.recipient
-  end
+  # def conversation_interlocutor(conversation)
+  #   conversation.recipient == current_student ? conversation.sender : conversation.recipient
+  # end
 
 end
 

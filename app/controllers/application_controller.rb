@@ -11,14 +11,11 @@ class ApplicationController < ActionController::Base
 
 
 
-  def index
-    @books = Book.all
-   end
+  # def index
+  #   @books = Book.all
+  #  end
 
-
-
-
-
+  
 
   protected
 

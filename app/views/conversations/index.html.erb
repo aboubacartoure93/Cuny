@@ -1,0 +1,32 @@
+
+<div class="columns">
+  <div class="column is-3">
+    <h3 class="title is-3">All Students</h3>
+    <% @students.each do |student| %>
+      <% if student.id != current_student.id %>
+       <%= link_to "Message #{student.name}", conversations_path(sender_id: current_student.id, recipient_id: student.id), method: "post" %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="column is-7">
+    <h3 class="title is-3">Conversations</h3>
+    <% @conversations.each do |conversation| %>
+      <% if conversation.sender_id == current_student.id || conversation.recipient_id == current_student.id %>
+        <% if conversation.sender_id == current_student.id %>
+          <% recipient = Student.find(conversation.recipient_id) %>
+        <% else %>
+          <% recipient = Student.find(conversation.sender_id) %>
+        <% end %>
+        <% unless current_student.id == recipient %>
+          <div class="columns">
+            <div class="column">
+              
+              <div class="inline-block"><%= link_to recipient.name, conversation_messages_path(conversation) %></div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

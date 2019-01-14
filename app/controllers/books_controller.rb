@@ -29,6 +29,10 @@ class BooksController < ApplicationController
    @books = Book.where.not(student_id: current_student.id).order("created_at DESC").paginate(page: params[:page], per_page: 8)
   end
 
+
+
+
+
   # GET /books/1
   # GET /books/1.json
   
@@ -42,13 +46,28 @@ class BooksController < ApplicationController
   def show
   @book = Book.find(params[:id])
 
-  @students = Student.where.not("id = ?",current_student.id).order("created_at DESC")
-  @conversations = Conversation.involving(current_student).order("created_at DESC")
+  #@students = Student.where.not("id = ?",current_student.id).order("created_at DESC")
+  #@conversations = Conversation.involving(current_student).order("created_at DESC")
   # @place = @event.place
-  #@student = @book.student
-  
+  @student = @book.student
+
+   #@path = conversation_path(@conversation)
   end
 
+
+  
+# def index
+#       @students = Student.where.not("id = ?",current_student.id).order("created_at DESC")
+#       @conversations = Conversation.involving(current_student).order("created_at DESC")
+#   end
+
+
+
+
+  def edit
+    @student = current_student
+    @book = Book.find(params[:id])
+  end
 
   # @conversation = Conversation.find(params[:conversation_id])
   #   @message = @conversation.messages.build(message_params)
@@ -72,11 +91,6 @@ class BooksController < ApplicationController
   # def edit
 
   # end
-
-  def edit
-    @student = current_student
-    @book = Book.find(params[:id])
-  end
 
 
 
@@ -187,7 +201,7 @@ end
     # Record.find_by(id: params[:id])
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :price, :avaibility, :email, :isbn, :avatar, :condition)
+      params.require(:book).permit(:title, :author, :price, :avaibility, :email, :isbn, :avatar, :condition, :student_id)
     end
   end
 

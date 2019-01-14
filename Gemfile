@@ -60,6 +60,10 @@ gem 'thin'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'better_errors'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'binding_of_caller', '~> 0.7.2'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end

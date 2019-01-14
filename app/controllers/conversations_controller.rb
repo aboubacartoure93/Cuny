@@ -7,6 +7,11 @@ class ConversationsController < ApplicationController
 
   layout false
 
+  def index #new line add
+    @students = Student.all
+    @conversations = Conversation.all
+  end #new line add end here
+
   def create
     if Conversation.between(params[:sender_id],params[:recipient_id]).present?
       @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first

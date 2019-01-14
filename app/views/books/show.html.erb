@@ -11,6 +11,7 @@
 <% end %>
 
 
+
 <!-- ********************* Abou modification a partir en bas****************
  -->
 
@@ -94,14 +95,12 @@
 
 
 
+<% if student_signed_in? && current_student.id != @book.student_id %>  <!-- good one here -->
 
-<!-- --------------- New Code below -------------------------- -->
+           <%= link_to "Send MessageBook", "#", class: "btn btn-success btn-xs start-conversation",
+                              "data-sid" => current_student.id, "data-rip" =>  @book.student_id %>
 
-<%= @book.student.name %> 
-
-<%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                              "data-sid" => current_student.id, "data-rip" => @book.student.id %>
-
+<% end -%>
 
 
 
