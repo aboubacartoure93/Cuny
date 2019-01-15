@@ -14,3 +14,7 @@ Rails.application.config.assets.precompile += %w( chat.js )
 Rails.application.config.assets.precompile += %w( books.js )
 
 Rails.application.config.assets.precompile += %w(create.js.erb.js)
+
+Rails.application.config.assets.precompile += %w( chat2.js )
+
+Rails.application.config.assets.precompile += %w( students.js )

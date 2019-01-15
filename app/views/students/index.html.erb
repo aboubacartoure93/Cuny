@@ -1,3 +1,18 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "chat2.js" %>
+<% end %>
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "students.js" %>
+<% end %>
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "create.js.erb" , skip_pipeline: true %>
+<% end %>
+
+
+
+
 <div class="row">
   <!-- Not implemented on tutorial -->
   <div class="col-md-4">
@@ -21,7 +36,7 @@
                 <td><%= index +=1 %></td>
                 <td><%= student.name %></td>
                 <td>
-                  <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                  <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversationSimple",
                               "data-sid" => current_student.id, "data-rip" => student.id %>
                 </td>
               </tr>
@@ -43,6 +58,7 @@
                   <%= image_tag("http://placehold.it/50x50", class: "media-object pull-left") %>
                   <div class="media-body">
                     <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
+                    <h4 class="media-heading"><%= conversation_interlocutor(conversation).name %></h4>
                         <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.body, length: 45) %></p>
                   </div>
                 </li>

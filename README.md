@@ -6,7 +6,7 @@ https://myaccount.google.com/lesssecureapps (allowing less secure email with gma
 
 
 -finir chat box
--other item (add description to book)
+-other item, articles (add description to book)
 -university create by admin only, seed (list of university, group student by university, student can more one university, student belong to university)
 -list of all university and community colleges seed
 -ablity for the ask to add his university if not there
@@ -27,3 +27,12 @@ https://myaccount.google.com/lesssecureapps (allowing less secure email with gma
 -if books not available : do not show it on sale part (archived)
 
 - send message to student in facebook  all selling group, cuny startup
+
+
+
+------------------------------------------monday 01/14/2019------------
+
+-severe problem with chatbox (je dois me recycler en jascripcript, codecademy.com)
+ -design
+ - don't show name of seller
+ -not receiving book id (for chat for book)
