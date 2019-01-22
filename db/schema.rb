@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181129235411) do
+ActiveRecord::Schema.define(version: 20190122012413) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -37,6 +37,40 @@ ActiveRecord::Schema.define(version: 20181129235411) do
     t.datetime "updated_at", null: false
     t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
+  create_table "electronics_computers", force: :cascade do |t|
+    t.string "electronicsTitle"
+    t.integer "electronicsPrice"
+    t.boolean "availableNow"
+    t.integer "student_id"
+    t.text "electronisDescription"
+    t.string "electronicsLocation"
+    t.string "condition"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "electronicsphoto_file_name"
+    t.string "electronicsphoto_content_type"
+    t.integer "electronicsphoto_file_size"
+    t.datetime "electronicsphoto_updated_at"
+  end
+
+  create_table "housings", force: :cascade do |t|
+    t.string "rentalType"
+    t.integer "numberofBedrooms"
+    t.integer "numberofBathrooms"
+    t.integer "housePrice"
+    t.datetime "availableDate"
+    t.integer "student_id"
+    t.text "homeDescription"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "housephoto_file_name"
+    t.string "housephoto_content_type"
+    t.integer "housephoto_file_size"
+    t.datetime "housephoto_updated_at"
+    t.boolean "availableNow"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -70,6 +104,30 @@ ActiveRecord::Schema.define(version: 20181129235411) do
     t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
   end
 
+  create_table "other_articles", force: :cascade do |t|
+    t.string "othersType"
+    t.integer "othersPrice"
+    t.boolean "availableNow"
+    t.integer "student_id"
+    t.text "othersDescription"
+    t.string "othersLocation"
+    t.string "condition"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "otherarticle_photo_file_name"
+    t.string "otherarticle_photo_content_type"
+    t.integer "otherarticle_photo_file_size"
+    t.datetime "otherarticle_photo_updated_at"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "student_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "email", default: "", null: false
@@ -99,10 +157,29 @@ ActiveRecord::Schema.define(version: 20181129235411) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pseudo"
     t.index ["confirmation_token"], name: "index_students_on_confirmation_token", unique: true
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_students_on_unlock_token", unique: true
+  end
+
+  create_table "tutors", force: :cascade do |t|
+    t.string "name"
+    t.string "degree"
+    t.text "classTeaching"
+    t.text "grades"
+    t.integer "price"
+    t.text "schedule"
+    t.string "location"
+    t.integer "student_id"
+    t.text "tutorDescription"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo_tutor_file_name"
+    t.string "photo_tutor_content_type"
+    t.integer "photo_tutor_file_size"
+    t.datetime "photo_tutor_updated_at"
   end
 
   create_table "universities", force: :cascade do |t|
@@ -110,6 +187,25 @@ ActiveRecord::Schema.define(version: 20181129235411) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "vehicules", force: :cascade do |t|
+    t.string "vehiculeType"
+    t.integer "vehiculePrice"
+    t.boolean "availableNow"
+    t.integer "student_id"
+    t.text "vehiculeDescription"
+    t.string "vehiculeLocation"
+    t.string "condition"
+    t.string "make"
+    t.string "model"
+    t.integer "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "vehicule_photo_file_name"
+    t.string "vehicule_photo_content_type"
+    t.integer "vehicule_photo_file_size"
+    t.datetime "vehicule_photo_updated_at"
   end
 
 end

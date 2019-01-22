@@ -40,7 +40,7 @@ var ready = function () {
         e.preventDefault();
 
         var id = $(this).data('cid');
-        chatBox.toggleChatBoxGrowth(id);
+        chatBoxS.toggleChatBoxGrowth(id);
     });
 
     /**
@@ -51,7 +51,7 @@ var ready = function () {
         e.preventDefault();
 
         var id = $(this).data('cid');
-        chatBox.close(id);
+        chatBoxS.close(id);
     });
 
 
@@ -63,7 +63,7 @@ var ready = function () {
     $(document).on('keydown', '.chatboxtextarea', function (event) {
 
         var id = $(this).data('cid');
-        chatBox.checkInputKey(event, $(this), id);
+        chatBoxS.checkInputKey(event, $(this), id);
     });
 
     /**
@@ -75,7 +75,7 @@ var ready = function () {
         e.preventDefault();
 
         var conversation_id = $(this).data('cid');
-        chatBox.chatWith(conversation_id);
+        chatBoxS.chatWith(conversation_id);
     });
 
 

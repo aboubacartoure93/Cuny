@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  othersType: MyString
+  othersPrice: 1
+  availableNow: false
+  student_id: 1
+  othersDescription: MyText
+  othersLocation: MyString
+  condition: MyString
+
+two:
+  othersType: MyString
+  othersPrice: 1
+  availableNow: false
+  student_id: 1
+  othersDescription: MyText
+  othersLocation: MyString
+  condition: MyString

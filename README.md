@@ -5,7 +5,9 @@ https://myaccount.google.com/lesssecureapps (allowing less secure email with gma
 
 
 
--finir chat box
+-finir chat box (remaining to improve design, notification sound, and notification for book buyer, but moving on for now)   OK
+
+
 -other item, articles (add description to book)
 -university create by admin only, seed (list of university, group student by university, student can more one university, student belong to university)
 -list of all university and community colleges seed
@@ -28,8 +30,13 @@ https://myaccount.google.com/lesssecureapps (allowing less secure email with gma
 
 - send message to student in facebook  all selling group, cuny startup
 
+- make search space big, more design, more visible, write in the space holder
+
+- looking for book people, send email to them if book become available
+- reviews, who can review tutors, book seller (https://www.youtube.com/watch?v=0DR5JLZ2Qgg&index=3&list=WL&t=0s)
 
 
+-cache memory cleaning
 ------------------------------------------monday 01/14/2019------------
 
 -severe problem with chatbox (je dois me recycler en jascripcript, codecademy.com)

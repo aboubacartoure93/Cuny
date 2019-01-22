@@ -1,0 +1,67 @@
+<%= form_with(model: vehicule, local: true) do |form| %>
+  <% if vehicule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vehicule.errors.count, "error") %> prohibited this vehicule from being saved:</h2>
+
+      <ul>
+      <% vehicule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :vehiculeType %>
+    <%= form.text_field :vehiculeType, id: :vehicule_vehiculeType %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vehiculePrice %>
+    <%= form.number_field :vehiculePrice, id: :vehicule_vehiculePrice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :availableNow %>
+    <%= form.check_box :availableNow, id: :vehicule_availableNow %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.number_field :student_id, id: :vehicule_student_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vehiculeDescription %>
+    <%= form.text_area :vehiculeDescription, id: :vehicule_vehiculeDescription %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vehiculeLocation %>
+    <%= form.text_field :vehiculeLocation, id: :vehicule_vehiculeLocation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :condition %>
+    <%= form.text_field :condition, id: :vehicule_condition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :make %>
+    <%= form.text_field :make, id: :vehicule_make %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model, id: :vehicule_model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.number_field :year, id: :vehicule_year %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

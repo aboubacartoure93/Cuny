@@ -1,0 +1,57 @@
+<%= form_with(model: housing, local: true) do |form| %>
+  <% if housing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(housing.errors.count, "error") %> prohibited this housing from being saved:</h2>
+
+      <ul>
+      <% housing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rentalType %>
+    <%= form.text_field :rentalType, id: :housing_rentalType %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numberofBedrooms %>
+    <%= form.number_field :numberofBedrooms, id: :housing_numberofBedrooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numberofBathrooms %>
+    <%= form.number_field :numberofBathrooms, id: :housing_numberofBathrooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :housePrice %>
+    <%= form.number_field :housePrice, id: :housing_housePrice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :availableDate %>
+    <%= form.datetime_select :availableDate, id: :housing_availableDate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.number_field :student_id, id: :housing_student_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :homeDescription %>
+    <%= form.text_area :homeDescription, id: :housing_homeDescription %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :housing_address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

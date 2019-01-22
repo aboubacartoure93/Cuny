@@ -74,7 +74,7 @@ var ready = function () {
         e.preventDefault();
 
         var conversation_id = $(this).data('cid');
-        chatBox2.chatWith(conversation_id);
+        chatBoxS.chatWith(conversation_id);
     });
 
 

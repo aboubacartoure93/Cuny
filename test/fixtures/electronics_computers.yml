@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  electronicsTitle: MyString
+  electronicsPrice: 1
+  availableNow: false
+  student_id: 1
+  electronisDescription: MyText
+  electronicsLocation: MyString
+  condition: MyString
+
+two:
+  electronicsTitle: MyString
+  electronicsPrice: 1
+  availableNow: false
+  student_id: 1
+  electronisDescription: MyText
+  electronicsLocation: MyString
+  condition: MyString

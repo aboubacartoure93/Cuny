@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehiculeType: MyString
+  vehiculePrice: 1
+  availableNow: false
+  student_id: 1
+  vehiculeDescription: MyText
+  vehiculeLocation: MyString
+  condition: MyString
+  make: MyString
+  model: MyString
+  year: 1
+
+two:
+  vehiculeType: MyString
+  vehiculePrice: 1
+  availableNow: false
+  student_id: 1
+  vehiculeDescription: MyText
+  vehiculeLocation: MyString
+  condition: MyString
+  make: MyString
+  model: MyString
+  year: 1

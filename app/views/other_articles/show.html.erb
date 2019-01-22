@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Otherstype:</strong>
+  <%= @other_article.othersType %>
+</p>
+
+<p>
+  <strong>Othersprice:</strong>
+  <%= @other_article.othersPrice %>
+</p>
+
+<p>
+  <strong>Availablenow:</strong>
+  <%= @other_article.availableNow %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @other_article.student_id %>
+</p>
+
+<p>
+  <strong>Othersdescription:</strong>
+  <%= @other_article.othersDescription %>
+</p>
+
+<p>
+  <strong>Otherslocation:</strong>
+  <%= @other_article.othersLocation %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @other_article.condition %>
+</p>
+
+<%= link_to 'Edit', edit_other_article_path(@other_article) %> |
+<%= link_to 'Back', other_articles_path %>

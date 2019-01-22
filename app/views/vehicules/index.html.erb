@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vehicules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vehiculetype</th>
+      <th>Vehiculeprice</th>
+      <th>Availablenow</th>
+      <th>Student</th>
+      <th>Vehiculedescription</th>
+      <th>Vehiculelocation</th>
+      <th>Condition</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicules.each do |vehicule| %>
+      <tr>
+        <td><%= vehicule.vehiculeType %></td>
+        <td><%= vehicule.vehiculePrice %></td>
+        <td><%= vehicule.availableNow %></td>
+        <td><%= vehicule.student_id %></td>
+        <td><%= vehicule.vehiculeDescription %></td>
+        <td><%= vehicule.vehiculeLocation %></td>
+        <td><%= vehicule.condition %></td>
+        <td><%= vehicule.make %></td>
+        <td><%= vehicule.model %></td>
+        <td><%= vehicule.year %></td>
+        <td><%= link_to 'Show', vehicule %></td>
+        <td><%= link_to 'Edit', edit_vehicule_path(vehicule) %></td>
+        <td><%= link_to 'Destroy', vehicule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vehicule', new_vehicule_path %>

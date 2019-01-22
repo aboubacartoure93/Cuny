@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tutors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Degree</th>
+      <th>Classteaching</th>
+      <th>Grades</th>
+      <th>Price</th>
+      <th>Schedule</th>
+      <th>Location</th>
+      <th>Student</th>
+      <th>Tutordescription</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tutors.each do |tutor| %>
+      <tr>
+        <td><%= tutor.name %></td>
+        <td><%= tutor.degree %></td>
+        <td><%= tutor.classTeaching %></td>
+        <td><%= tutor.grades %></td>
+        <td><%= tutor.price %></td>
+        <td><%= tutor.schedule %></td>
+        <td><%= tutor.location %></td>
+        <td><%= tutor.student_id %></td>
+        <td><%= tutor.tutorDescription %></td>
+        <td><%= link_to 'Show', tutor %></td>
+        <td><%= link_to 'Edit', edit_tutor_path(tutor) %></td>
+        <td><%= link_to 'Destroy', tutor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tutor', new_tutor_path %>

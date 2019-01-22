@@ -1,0 +1,62 @@
+<%= form_with(model: tutor, local: true) do |form| %>
+  <% if tutor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tutor.errors.count, "error") %> prohibited this tutor from being saved:</h2>
+
+      <ul>
+      <% tutor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :tutor_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :degree %>
+    <%= form.text_field :degree, id: :tutor_degree %>
+  </div>
+
+  <div class="field">
+    <%= form.label :classTeaching %>
+    <%= form.text_area :classTeaching, id: :tutor_classTeaching %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grades %>
+    <%= form.text_area :grades, id: :tutor_grades %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, id: :tutor_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :schedule %>
+    <%= form.text_area :schedule, id: :tutor_schedule %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, id: :tutor_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.number_field :student_id, id: :tutor_student_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tutorDescription %>
+    <%= form.text_area :tutorDescription, id: :tutor_tutorDescription %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

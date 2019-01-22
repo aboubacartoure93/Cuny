@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  resources :other_articles
+  resources :vehicules
+  resources :electronics_computers
+  resources :housings
+  resources :reviews
+  resources :tutors
   get 'students/show'
   devise_for :students, controllers: { registrations: 'registrations' }
   resources :students #, only:[:update, :show, :edit]
