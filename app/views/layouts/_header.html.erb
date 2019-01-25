@@ -37,7 +37,7 @@
 			
 			<%= form_tag search_books_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
 				<p>
-					<%= text_field_tag :search, params[:search], class: "form-control" %>
+					<%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for a book" %>
 					<%= submit_tag "Search", name: nil, class: "btn btn-default" %>
 				</p>	
 			<% end %>

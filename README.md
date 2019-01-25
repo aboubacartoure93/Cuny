@@ -18,12 +18,16 @@ https://myaccount.google.com/lesssecureapps (allowing less secure email with gma
 -change to Sendgrid
 -push online--------------------------
 -send email to hunter student
+-We don't guarantee the accuraticy of information that users posted... (do your own research!)
+-Legal issues
+-meet people your school or public space 
 
 - student can create page and other students can follow
 -student create group other student can subscribe
 
 -Intership
 -Job offer
+-help myprofessor
 
 
 -if books not available : do not show it on sale part (archived)
@@ -35,11 +39,13 @@ https://myaccount.google.com/lesssecureapps (allowing less secure email with gma
 - looking for book people, send email to them if book become available
 - reviews, who can review tutors, book seller (https://www.youtube.com/watch?v=0DR5JLZ2Qgg&index=3&list=WL&t=0s)
 
-
+- start writing test
 -cache memory cleaning
 ------------------------------------------monday 01/14/2019------------
 
 -severe problem with chatbox (je dois me recycler en jascripcript, codecademy.com)
  -design
+ -notification sound and email for the first messages
+ -allow rating if seller and buyer communicate once
  - don't show name of seller
  -not receiving book id (for chat for book)

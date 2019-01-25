@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p>
 
 <h1>Tutors</h1>
 
@@ -41,3 +41,81 @@
 <br>
 
 <%= link_to 'New Tutor', new_tutor_path %>
+ -->
+
+
+ <!-- ------------------------ New work below --------------------------- -->
+
+ <% if student_signed_in? %>
+  <%- model_class = Student -%>
+  <div class="page-header">
+    <h1><%=t '.title', :default => [:'helpers.titles.update', 'Available Tutors'] %></h1>
+  </div>
+
+  <% @tutors.each do |tutor|%>  
+  <!-- <div class="p-wrap"> -->  
+      <!-- <div class="col-sum-6 col-md-3"> -->
+      <div class="p-places">
+          <div class="thumbnail">
+            <%= link_to (image_tag tutor.photo_tutor.url(:medium)), tutor_path(tutor, continue: edit_tutor_path(tutor)) %>
+            <div class="p-description">
+              <p> <%= tutor.name %></p>
+              <p>$<%= tutor.price %></p>
+              <p> <%= tutor.classTeaching %></p>
+            </div>
+          </div>
+      </div>
+  <% end %>
+<% end %>
+
+
+
+
+
+
+<% if !student_signed_in? %>
+  <%- model_class = Student -%>
+  <div class="page-header">
+    <h1><%=t '.title', :default => [:'helpers.titles.update', 'For Sale'] %></h1>
+  </div>
+
+          
+  <% @tutors.each do |tutor|%>
+  <!-- <div class="p-wrap"> -->
+    <!-- <div class="col-sum-6 col-md-3"> -->
+
+    <div class="p-places">
+      <div class="thumbnail">
+            <%= link_to (image_tag tutor.photo_tutor.url(:medium)), new_student_session_path %>
+            <div class="p-description">
+              <p> <%= tutor.title %></p>
+              <p>$<%= tutor.price %></p>
+            </div>
+          </div>
+      </div>
+  <% end %>
+<% end %>
+
+
+
+
+<!-- New test below --------------------- -->
+
+<%= will_paginate @tutors, renderer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer", inner_window: 1, outer_window: 0 %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

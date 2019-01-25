@@ -8,6 +8,7 @@ class Student < ActiveRecord::Base
          #:recoverable, :rememberable, :trackable, :validatable, :confirmable
   attr_accessor :profilepic
   has_many :books
+  has_many :tutors
 
   has_many :conversations, :foreign_key => :sender_id
   

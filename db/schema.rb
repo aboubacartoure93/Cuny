@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190122012413) do
+ActiveRecord::Schema.define(version: 20190125040035) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20190122012413) do
     t.string "electronicsphoto_content_type"
     t.integer "electronicsphoto_file_size"
     t.datetime "electronicsphoto_updated_at"
+    t.string "electronicsComputerEmail"
   end
 
   create_table "housings", force: :cascade do |t|
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 20190122012413) do
     t.integer "housephoto_file_size"
     t.datetime "housephoto_updated_at"
     t.boolean "availableNow"
+    t.string "housingemail"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -118,6 +120,7 @@ ActiveRecord::Schema.define(version: 20190122012413) do
     t.string "otherarticle_photo_content_type"
     t.integer "otherarticle_photo_file_size"
     t.datetime "otherarticle_photo_updated_at"
+    t.string "other_articlesEmail"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -180,6 +183,8 @@ ActiveRecord::Schema.define(version: 20190122012413) do
     t.string "photo_tutor_content_type"
     t.integer "photo_tutor_file_size"
     t.datetime "photo_tutor_updated_at"
+    t.boolean "availabletutor"
+    t.string "emailtutor"
   end
 
   create_table "universities", force: :cascade do |t|
@@ -206,6 +211,7 @@ ActiveRecord::Schema.define(version: 20190122012413) do
     t.string "vehicule_photo_content_type"
     t.integer "vehicule_photo_file_size"
     t.datetime "vehicule_photo_updated_at"
+    t.string "vehiculeEmail"
   end
 
 end

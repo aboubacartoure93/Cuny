@@ -28,6 +28,7 @@ end
 
      
   def edit
+    
 
   end 
 
@@ -49,7 +50,7 @@ end
   end
 
   def user_params
-    params.require(:student).permit(:fname, :lname, :email, :password, :password_confirmation, :current_password, :profilepic, :name)
+    params.require(:student).permit(:fname, :lname, :email, :password, :password_confirmation, :current_password, :profilepic, :name, :pseudo)
   end
 
 

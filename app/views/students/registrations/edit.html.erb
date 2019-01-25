@@ -92,6 +92,17 @@
     </div>
 </div>
 
+
+<div class="form-group">
+    <%= f.label :pseudo, "Pseudo", class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.text_field :pseudo, autofocus: true, class: 'form-control'  %>
+    </div>
+    <%=f.error_span(:pseudo) %>
+</div>
+
+
+
 <div class="form-group">
     <%= f.label :fname, "First Name", class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">

@@ -5,7 +5,17 @@ Rails.application.routes.draw do
   resources :electronics_computers
   resources :housings
   resources :reviews
-  resources :tutors
+  
+  resources :tutors do
+     collection do
+      get 'search'
+    end
+  end
+
+
+
+
+
   get 'students/show'
   devise_for :students, controllers: { registrations: 'registrations' }
   resources :students #, only:[:update, :show, :edit]
