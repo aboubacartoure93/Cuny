@@ -42,4 +42,18 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:fname, :lname, :name, :email, :password, :current_password, :password_confirmation, :profilepic, :pseudo) }
   end
 
+  # def authenticate_admin!
+  #   unless current_student[params[:admin]] == true
+      
+  #   end
+  # end
+
+  def authorize_admin
+    redirect_to :books, status: 401 unless current_student.admin
+    #redirects to previous page
+end
+
+
+
+
 end

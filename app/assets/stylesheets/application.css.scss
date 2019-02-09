@@ -254,10 +254,50 @@ footer{
 }
 
 
+.vertivcalnac {
+ float: left;
+ margin-top: 138px;
+ margin-left: 15px;
+
+ 	a {
+    color: #777;
+    text-decoration: none;
+    font-weight: bold;
+}
+	
+}
 
 /*---------------New test below --------------------*/
 
+.btn-group-vertical {
+	width: 145px;
+	height: 200px;
+	color: white;
+}
+
+.btn-secondary {
+	background-color: #f8f8f8;
+	color: #777;
+	color: white;
+}
 
 
+
+/*li a {
+  
+  color: red;
+}*/
+
+/*.navbar-nav  li  a {
+	color: blue;
+}*/
+
+
+
+.navbar-default .navbar-nav > li > a {
+    /*color: #337ab7;*/
+    /*font-weight: normal;*/
+    color: #777;
+}
 
 

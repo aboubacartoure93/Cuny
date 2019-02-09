@@ -17,12 +17,12 @@
     <div class="profilepic"> <%= image_tag @student.profilepic.url(:medium) %></div><br>
 <% end %>
 
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
   <ul class="nav navbar-nav">
     <li><%= link_to "Edit Profile", edit_student_registration_path(current_student) %></li>
     <li><%= link_to "Your Conversations", students_path(current_student) %></li>
   </ul>
-</div>
+<!-- </div> -->
 
         <div class="table-responsive"></div>
         <table class="table">
@@ -72,5 +72,21 @@
   <% end %>
 </div>
 
+
+<% if @current_student.tutors.exists? %>
+<div class="row">
+  <h4> Your Posted Tutoring </h4>
+  <% @current_student.tutors.each do |tutor|%>
+    <div class="col-sum-6 col-md-3">
+      <div class="thumbnail">
+        <p class="p-description">
+     
+        <%= link_to (image_tag tutor.photo_tutor.url(:medium)), tutor_path(tutor, continue: edit_tutor_path(tutor)) %>
+      </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% end %>
 
 

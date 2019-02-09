@@ -1,4 +1,54 @@
-# Cuny
+# Cuny 
+<%= render 'layouts/header' %>
+
+ <!<% elsif current_page? (edit_tutor_path(@tutor))%>
+    <%= render 'tutors/headertutors' %>
+
+
+
+
+
+
+
+
+  <% if current_page? (tutors_path)%>
+    <%= render 'tutors/headertutors' %>
+  <% elsif current_page? (search_tutors_path)%>
+    <%= render 'tutors/headertutors' %>
+  <% elsif current_page? (new_tutor_path)%>
+    <%= render 'tutors/headertutors' %>
+  <% elsif current_page? (tutors_home_path)%>
+    <%= render 'tutors/headertutors' %>
+
+
+  <% elsif current_page? (edit_tutor_path(@tutor))%>
+    <%= render 'tutors/headertutors' %>
+  <% elsif current_page? (tutor_path(@tutor))%>
+    <%= render 'tutors/headertutors' %>
+
+
+
+
+<% elsif current_page? (housings_path) %>
+  <%= render 'housings/headerhousings' %>
+<% elsif current_page? (electronics_computers_path) %>
+  <%= render 'electronics_computers/headerelectronics' %>
+<% elsif current_page? (vehicules_path) %>
+  <%= render 'vehicules/headervehicules' %>
+<% elsif current_page? (other_articles_path) %>
+  <%= render 'other_articles/headerother' %>
+<% else %>
+    <%= render 'layouts/header' %>
+<% end %>
+
+
+
+
+
+
+
+
+    
 
 https://myaccount.google.com/lesssecureapps (allowing less secure email with gmail)
 
@@ -20,6 +70,7 @@ https://myaccount.google.com/lesssecureapps (allowing less secure email with gma
 -send email to hunter student
 -We don't guarantee the accuraticy of information that users posted... (do your own research!)
 -Legal issues
+-housing for sale or rent(add to database and separate in views)
 -meet people your school or public space 
 
 - student can create page and other students can follow
@@ -29,7 +80,7 @@ https://myaccount.google.com/lesssecureapps (allowing less secure email with gma
 -Job offer
 -help myprofessor
 
-
+- contact us if you don't your university or any problem 
 -if books not available : do not show it on sale part (archived)
 
 - send message to student in facebook  all selling group, cuny startup

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :housings
   resources :reviews
   
+  get '/tutors/home' => 'tutors#home'
   resources :tutors do
      collection do
       get 'search'

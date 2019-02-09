@@ -1,17 +1,18 @@
 class TutorsController < ApplicationController
   include TutorsHelper
-  before_action :set_tutor, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_student!, except:[ :show, :index]
-
+  before_action :authenticate_student!, except:[ :show, :home]
+  before_action :set_tutor, only: [:show, :edit, :update, :destroy, :home]
+ 
   # GET /tutors
   # GET /tutors.json
   
   # def index
   #   @tutors = Tutor.all
   # end
-
+ 
 
    def home
+    @student = current_student
     @tutors = Tutor.all.order("created_at DESC").paginate(page: params[:page], per_page: 8)
   end
 
@@ -53,6 +54,7 @@ class TutorsController < ApplicationController
   def edit
     @student = current_student
     @tutor = Tutor.find(params[:id])
+    #@tutor = Tutor.find_by(set_tutor)
   end
 
   # POST /tutors
@@ -110,8 +112,13 @@ class TutorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tutor
-      @tutor = Tutor.find(params[:id])
+      #@tutor = Tutor.find(params[:tutor_id])
+      @tutor = Tutor.find_by(params[:tutor_id])
     end
+
+    # def set_book
+    #   @book = Book.find_by(params[:book_id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutor_params

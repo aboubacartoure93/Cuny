@@ -13,22 +13,8 @@ class Book < ActiveRecord::Base
   	scope :books_by_not_current_student, ->(student) { where.not(student: student) }
 
 
-  	# CONDITION = %W{ New Used_like_new Used_very_good Used_acceptable Used_fair}
-
+  	
 
 
 
 end
-
-
-
-# class Place < ActiveRecord::Base
-# 	attr_accessor :avatar
-# 	has_many :events
-
-# 	has_attached_file :avatar, styles: { medium: "300x300#{}", thumb: "100x100#{}", icon: "35x35#{}" }, default_url: "/images/:style/missing.png"
-#   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-
-# 	geocoded_by :address
-# 	after_validation :geocode
-# end
