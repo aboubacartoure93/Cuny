@@ -22,9 +22,4 @@ test:
 
 production:
   adapter: postgresql
-  pool: 5
-  timeout: 5000
-  database: cuny
-  username: deploy
-  host: 142.93.246.21
-  encoding: unicode
+
