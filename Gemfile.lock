@@ -224,7 +224,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
-    pg (1.1.4)
+    pg (0.21.0)
     private_pub (1.0.3)
       faye
     pry (0.12.2)
@@ -363,7 +363,7 @@ DEPENDENCIES
   mini_magick
   mongoid (~> 6.1.0)
   paperclip (~> 5.0.0)
-  pg
+  pg (~> 0.18)
   private_pub
   rails (= 5.1.4)
   rails_12factor
@@ -382,6 +382,9 @@ DEPENDENCIES
   web-console (~> 3.0)
   will_paginate
   will_paginate-bootstrap (~> 1.0, >= 1.0.1)
+
+RUBY VERSION
+   ruby 2.6.1p33
 
 BUNDLED WITH
    2.0.1
