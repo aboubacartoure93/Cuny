@@ -15,7 +15,8 @@ gem "twitter-bootstrap-rails"
 gem 'vider', github: 'wazery/vider'
 # Use sqlite3 as the database for Active Record
 gem 'sass-rails', '~> 5.0'
-gem 'sqlite3'
+#gem 'sqlite3'
+gem 'pg'
 gem 'mongoid', '~> 6.1.0'
 #gem 'sendgrid-ruby'
 #gem 'sendgrid-ruby'
@@ -75,7 +76,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 3.0'
 
-  
+
   gem 'capistrano', '~> 3.7', '>= 3.7.1'
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-passenger', '~> 0.2.0'
