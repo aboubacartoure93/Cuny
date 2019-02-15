@@ -1,6 +1,8 @@
 class OtherArticlesController < ApplicationController
   before_action :set_other_article, only: [:show, :edit, :update, :destroy]
 
+
+  layout "others"
   # GET /other_articles
   # GET /other_articles.json
   def index

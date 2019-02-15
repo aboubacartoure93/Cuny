@@ -2,7 +2,8 @@ class TutorsController < ApplicationController
   include TutorsHelper
   before_action :authenticate_student!, except:[ :show, :home]
   before_action :set_tutor, only: [:show, :edit, :update, :destroy, :home]
- 
+  
+layout "tutors"
   # GET /tutors
   # GET /tutors.json
   

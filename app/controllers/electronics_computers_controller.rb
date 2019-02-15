@@ -1,6 +1,7 @@
 class ElectronicsComputersController < ApplicationController
   before_action :set_electronics_computer, only: [:show, :edit, :update, :destroy]
 
+layout "electronics"
   # GET /electronics_computers
   # GET /electronics_computers.json
   def index

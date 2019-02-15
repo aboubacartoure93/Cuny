@@ -1,6 +1,7 @@
 class HousingsController < ApplicationController
   before_action :set_housing, only: [:show, :edit, :update, :destroy]
 
+  layout "housings"
   # GET /housings
   # GET /housings.json
   def index
