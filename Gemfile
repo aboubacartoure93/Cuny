@@ -61,6 +61,7 @@ gem 'thin'
 
 
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -93,4 +94,4 @@ group :production do
 end
 gem 'rails_12factor', group: :production
 
-ruby "2.6.1"
+ruby "2.4.1"
