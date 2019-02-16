@@ -21,6 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
   adapter: postgresql
- 
+  pool: 5
+  timeout: 5000
+  database: cuny
+  username: deploy
+  host: 142.93.246.213
+  encoding: unicode
