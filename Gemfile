@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'rails', '5.1.4'
+gem 'pg', '~> 0.18.4'
 #gem 'rails', '~> 5.2', '>= 5.2.1'
 gem'devise' 
 gem "therubyracer"
@@ -72,7 +73,7 @@ group :development, :test do
   gem 'binding_of_caller', '~> 0.7.2'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'sqlite3', '~> 1.3', '>= 1.3.11'
+  #gem 'sqlite3', '~> 1.3', '>= 1.3.11'
   gem 'rspec-rails', '~> 3.8'
 end
 
@@ -81,18 +82,15 @@ group :development do
   gem 'web-console', '~> 3.0'
   gem 'rspec-rails', '~> 3.8'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-end
-
-group :production do
   gem 'capistrano', '~> 3.7', '>= 3.7.1'
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-passenger', '~> 0.2.0'
   gem 'capistrano-rbenv', '~> 2.1'
-  #gem 'pg', '~> 0.18'
-  gem 'pg', '~> 0.18.4'
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
 end
+
 gem 'rails_12factor', group: :production
 
 ruby "2.6.1"

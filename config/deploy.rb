@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :application, "Cuny"
+set :application, "cuny"
 set :repo_url, "git@github.com:aboubacartoure93/Cuny.git"
 
 # Default branch is :master
