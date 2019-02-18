@@ -2,7 +2,7 @@
 
 git add -A && git commit
 
-
+git push origin seeding_university_vers1.8
 
 
 
