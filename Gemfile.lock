@@ -368,6 +368,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport (~> 5.2, >= 5.2.2)
   api-pagination (~> 4.8, >= 4.8.1)
   better_errors
   binding_of_caller (~> 0.7.2)
