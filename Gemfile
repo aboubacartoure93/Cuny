@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 #gem 'rails', '5.1.4'
-gem 'rails', '~> 5.2', '>= 5.2.2'
+gem 'rails', '~> 5.2', '>= 5.2.1'
 gem 'pg', '~> 1.1', '>= 1.1.4'
 #gem 'pg', '~> 0.18.4'
 #gem 'rails', '~> 5.2', '>= 5.2.1'
@@ -61,7 +61,10 @@ gem 'thin'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-
+  gem 'capistrano', '~> 3.7', '>= 3.7.1'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano-rbenv', '~> 2.1'
 
 
 
@@ -82,17 +85,11 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 3.0'
-  gem 'rspec-rails', '~> 3.8'
-
-  gem 'capistrano', '~> 3.7', '>= 3.7.1'
-  gem 'capistrano-rails', '~> 1.2'
-  gem 'capistrano-passenger', '~> 0.2.0'
-  gem 'capistrano-rbenv', '~> 2.1'
-
+  
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
 gem 'rails_12factor', group: :production
 
-ruby "2.6.1"
+ruby "2.5.1"
