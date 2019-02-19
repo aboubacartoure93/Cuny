@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 #gem 'rails', '5.1.4'
 gem 'rails', '~> 5.2', '>= 5.2.1'
-gem 'pg', '~> 1.1', '>= 1.1.4'
-#gem 'pg', '~> 0.18.4'
+# gem 'pg', '~> 1.1', '>= 1.1.4'
+gem 'pg'
 #gem 'rails', '~> 5.2', '>= 5.2.1'
 gem'devise' 
 gem "therubyracer"

@@ -387,7 +387,7 @@ DEPENDENCIES
   mini_magick
   mongoid (~> 6.1.0)
   paperclip (~> 5.0.0)
-  pg (~> 1.1, >= 1.1.4)
+  pg
   private_pub
   rails (~> 5.2, >= 5.2.1)
   rails_12factor
