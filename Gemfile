@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.2', '>= 5.2.2'
 # gem 'pg', '~> 1.1', '>= 1.1.4'
-gem 'pg', '~> 0.18.4'
+#gem 'pg', '~> 0.18.4'
 #gem 'rails', '~> 5.2', '>= 5.2.1'
 gem'devise' 
 gem "therubyracer"
@@ -13,7 +13,8 @@ gem 'bootstrap-sass', '~> 3.3.5'
 #gem 'sprockets', '3.6.3'
 # gem 'sprockets', '~> 3.7', '>= 3.7.1'
 #gem 'sprockets', '~> 3.0'
-gem 'sprockets', '~> 4.0.0.beta8'
+gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
+gem 'less-rails', '~> 4.0'
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -92,7 +93,10 @@ group :development do
   gem 'spring'
 end
 
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 gem 'activesupport', '~> 5.2', '>= 5.2.2'
 
