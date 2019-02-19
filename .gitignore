@@ -194,3 +194,4 @@ sendgrid.env
 sendgrid.env
 sendgrid.env
 config/database.yml\nconfig/secrets.yml
+sendgrid.env
