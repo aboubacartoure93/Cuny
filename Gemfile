@@ -12,7 +12,8 @@ gem "therubyracer"
 gem 'bootstrap-sass', '~> 3.3.5'
 #gem 'sprockets', '3.6.3'
 # gem 'sprockets', '~> 3.7', '>= 3.7.1'
-gem 'sprockets', '~> 3.0'
+#gem 'sprockets', '~> 3.0'
+gem 'sprockets', '3.6.3'
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
