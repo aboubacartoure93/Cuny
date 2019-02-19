@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 #gem 'rails', '5.1.4'
 #gem 'rails', '~> 5.2', '>= 5.2.1'
-gem 'rails', '~> 5.2', '>= 5.2.2'
 
+gem 'rails', '~> 5.2', '>= 5.2.2'
 # gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'pg'
 #gem 'rails', '~> 5.2', '>= 5.2.1'
@@ -94,6 +94,7 @@ end
 
 gem 'rails_12factor', group: :production
 
+gem 'activesupport', '~> 5.2', '>= 5.2.2'
 
 ruby "2.6.1"
 
