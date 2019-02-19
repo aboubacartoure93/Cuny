@@ -97,5 +97,5 @@ gem 'rails_12factor', group: :production
 
 gem 'activesupport', '~> 5.2', '>= 5.2.2'
 
-ruby "2.6.1"
+ruby "2.5.1"
 
