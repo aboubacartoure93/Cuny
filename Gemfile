@@ -14,7 +14,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 # gem 'sprockets', '~> 3.7', '>= 3.7.1'
 #gem 'sprockets', '~> 3.0'
 #gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
-gem "sprockets", '3.6.3'
+gem 'sprockets', '~> 3.5', '>= 3.5.2'
 #gem 'less-rails', git: 'https://github.com/MustafaZain/less-rails'
 #gem 'less-rails', '~> 4.0'
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
