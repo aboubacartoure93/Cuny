@@ -5,16 +5,6 @@ GIT
     vider (0.0.1)
       rails (>= 4.1.6)
 
-GIT
-  remote: https://github.com/MustafaZain/less-rails
-  revision: 946213803a5b274260dad17526eb201230e4a761
-  specs:
-    less-rails (2.8.1)
-      actionpack (>= 4.0)
-      less (~> 2.6.0)
-      sprockets (> 2, < 4)
-      tilt
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -190,6 +180,11 @@ GEM
     json (1.8.6)
     less (2.6.0)
       commonjs (~> 0.2.7)
+    less-rails (2.8.0)
+      actionpack (>= 4.0)
+      less (~> 2.6.0)
+      sprockets (> 2, < 4)
+      tilt
     libv8 (3.16.14.19)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -323,7 +318,7 @@ GEM
     shellany (0.0.1)
     spring (2.0.2)
       activesupport (>= 4.2)
-    sprockets (3.7.2)
+    sprockets (3.6.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.1)
@@ -390,7 +385,6 @@ DEPENDENCIES
   guard-livereload
   jbuilder (~> 2.0)
   jquery-rails
-  less-rails!
   mini_magick
   mongoid (~> 6.1.0)
   paperclip (~> 5.0.0)
@@ -403,7 +397,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   searchkick
   spring
-  sprockets-rails (~> 3.2, >= 3.2.1)
+  sprockets (= 3.6.3)
   therubyracer
   thin
   turbolinks
