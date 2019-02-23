@@ -1,0 +1,2 @@
+class ElectronicsComputer < ApplicationRecord
+end

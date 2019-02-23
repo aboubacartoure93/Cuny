@@ -13,5 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require bootstrap-sprockets
+//= require chat
 //= require turbolinks
+//= require private_pub
 //= require_tree .
+
+//= require jquery.vide

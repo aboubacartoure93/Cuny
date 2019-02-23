@@ -1,0 +1,52 @@
+<%= form_with(model: electronics_computer, local: true) do |form| %>
+  <% if electronics_computer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(electronics_computer.errors.count, "error") %> prohibited this electronics_computer from being saved:</h2>
+
+      <ul>
+      <% electronics_computer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :electronicsTitle %>
+    <%= form.text_field :electronicsTitle, id: :electronics_computer_electronicsTitle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :electronicsPrice %>
+    <%= form.number_field :electronicsPrice, id: :electronics_computer_electronicsPrice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :availableNow %>
+    <%= form.check_box :availableNow, id: :electronics_computer_availableNow %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.number_field :student_id, id: :electronics_computer_student_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :electronisDescription %>
+    <%= form.text_area :electronisDescription, id: :electronics_computer_electronisDescription %>
+  </div>
+
+  <div class="field">
+    <%= form.label :electronicsLocation %>
+    <%= form.text_field :electronicsLocation, id: :electronics_computer_electronicsLocation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :condition %>
+    <%= form.text_field :condition, id: :electronics_computer_condition %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

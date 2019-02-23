@@ -9,3 +9,12 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( chat.js )
+
+Rails.application.config.assets.precompile += %w( books.js )
+
+Rails.application.config.assets.precompile += %w(create.js.erb.js)
+
+Rails.application.config.assets.precompile += %w( chat2.js )
+
+Rails.application.config.assets.precompile += %w( students.js )

@@ -1,0 +1,176 @@
+
+
+<!-- ----------------------------- new try below -------------------------------- -->
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "chat.js" %>
+<% end %>
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "books.js" %>
+<% end %>
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "create.js.erb" , skip_pipeline: true %>
+<% end %>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<script type="text/javascript">
+
+if (location.href.indexOf('reload')==-1)
+{
+   location.href=location.href+'?reload';
+}
+</script>  <!-- #reload page for chatbox javascript to load -->
+
+
+
+<!-- ********************* Abou modification a partir en bas****************
+ -->
+
+ <%- model_class = Student -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.update', 'For Sale'] %></h1>
+</div>
+ 
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag @tutor.photo_tutor.url(:medium) %>
+        <div class="table-responsive"></div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><strong>Name:</strong></td>
+              <td><%= @tutor.name %> </td>
+            </tr>
+            <tr>
+              <td><strong>Degree or Level of Education:</strong></td>
+              <td><%= @tutor.degree %> </td>
+            </tr>
+            <tr>
+              <td><strong>Price per Hour:</strong></td>
+              <td>$ <%=  @tutor.price %> </td>
+            </tr>
+            <tr>
+              <td><strong>Class To Teach:</strong></td>
+              <td>$ <%=  @tutor.classTeaching %> </td>
+            </tr>
+
+
+            <tr>
+              <td><strong>Available Now:</strong></td>
+              <% if @tutor.availabletutor? %>
+                <td> Yes </td>
+              <% else %>
+                <td> No </td>
+              <% end %>
+            </tr>
+
+
+            <tr>
+              <td><strong>Schedule:</strong></td>
+              <td><%= @tutor.schedule %> </td>
+            </tr>
+            <tr>
+
+            <tr>
+              <td><strong>tutor description:</strong></td>
+              <td><%= @tutor.tutorDescription %> </td>
+            </tr>
+            <tr>
+              <td><strong>Tutor email:</strong></td>
+              <td><%= @tutor.emailtutor %> </td>
+            </tr>
+
+          </tbody>
+        </table>
+        
+      </div>
+
+    </div>
+  </div>
+
+</div>
+ 
+  <%  if (student_signed_in? && (current_student.id == @tutor.student_id)) %>
+
+            <%= link_to t('.back', :default => t("helpers.links.back")),
+                          tutors_path, :class => 'btn btn-default'  %>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_tutor_path(@tutor), :class => 'btn btn-default' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          tutor_path(@tutor),
+                          :method => 'delete',
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-danger' %>
+  
+  
+
+  <% end %>
+
+
+
+<% if student_signed_in? && current_student.id != @tutor.student_id %>  <!-- good one here -->
+
+           <%= link_to "Send MessageBook", "#", class: "btn btn-success btn-xs start-conversation",
+                              "data-sid" => current_student.id, "data-rip" =>  @tutor.student_id %>
+
+<% end -%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

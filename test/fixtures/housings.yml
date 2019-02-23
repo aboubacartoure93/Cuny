@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rentalType: MyString
+  numberofBedrooms: 1
+  numberofBathrooms: 1
+  housePrice: 1
+  availableDate: 2019-01-21 19:41:09
+  student_id: 1
+  homeDescription: MyText
+  address: MyString
+
+two:
+  rentalType: MyString
+  numberofBedrooms: 1
+  numberofBathrooms: 1
+  housePrice: 1
+  availableDate: 2019-01-21 19:41:09
+  student_id: 1
+  homeDescription: MyText
+  address: MyString

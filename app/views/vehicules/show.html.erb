@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vehiculetype:</strong>
+  <%= @vehicule.vehiculeType %>
+</p>
+
+<p>
+  <strong>Vehiculeprice:</strong>
+  <%= @vehicule.vehiculePrice %>
+</p>
+
+<p>
+  <strong>Availablenow:</strong>
+  <%= @vehicule.availableNow %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @vehicule.student_id %>
+</p>
+
+<p>
+  <strong>Vehiculedescription:</strong>
+  <%= @vehicule.vehiculeDescription %>
+</p>
+
+<p>
+  <strong>Vehiculelocation:</strong>
+  <%= @vehicule.vehiculeLocation %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @vehicule.condition %>
+</p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @vehicule.make %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @vehicule.model %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @vehicule.year %>
+</p>
+
+<%= link_to 'Edit', edit_vehicule_path(@vehicule) %> |
+<%= link_to 'Back', vehicules_path %>

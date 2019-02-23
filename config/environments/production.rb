@@ -11,7 +11,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
@@ -25,11 +25,12 @@ Rails.application.configure do
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  #config.assets.js_compressor = :uglifier
+  #config.assets.js_compressor = Uglifier.new(harmony: true)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
@@ -48,8 +49,31 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
 
+
+  config.serve_static_assets = false
+
+# Compress JavaScripts and CSS  
+config.assets.compress = true
+
+# Don't fallback to assets pipeline if a precompiled asset is missed  
+config.assets.compile = false
+
+# Generate digests for assets URLs  
+config.assets.digest = true
+
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
+ 
+config.action_mailer.default_url_options = {:host => 'localhost:3000'}
+# config.action_mailer.delivery_method = :smtp
+# config.action_mailer.smtp_settings = {
+#   :address => "127.0.0.1",
+#   :port    => 25,
+#   :domain  => 'yourdomain.com'
+# } 
+
+
+
 
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)

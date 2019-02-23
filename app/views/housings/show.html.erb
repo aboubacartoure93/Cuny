@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rentaltype:</strong>
+  <%= @housing.rentalType %>
+</p>
+
+<p>
+  <strong>Numberofbedrooms:</strong>
+  <%= @housing.numberofBedrooms %>
+</p>
+
+<p>
+  <strong>Numberofbathrooms:</strong>
+  <%= @housing.numberofBathrooms %>
+</p>
+
+<p>
+  <strong>Houseprice:</strong>
+  <%= @housing.housePrice %>
+</p>
+
+<p>
+  <strong>Availabledate:</strong>
+  <%= @housing.availableDate %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @housing.student_id %>
+</p>
+
+<p>
+  <strong>Homedescription:</strong>
+  <%= @housing.homeDescription %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @housing.address %>
+</p>
+
+<%= link_to 'Edit', edit_housing_path(@housing) %> |
+<%= link_to 'Back', housings_path %>

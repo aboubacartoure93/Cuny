@@ -1,0 +1,150 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta content='<%= student_signed_in? ? current_student.id : "" %>' name='student-id'/>
+  <title>Cuny</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+	 <%= javascript_include_tag :defaults , skip_pipeline: true%> 
+
+</head>
+
+<body>
+
+
+<nav class= "navbar navbar-default" role="navigation">   <!-- <nav class="headernav">  -->
+	<div class= "container">                
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>  
+				<div class ="logo" >
+                 <a class="navbar-brand" href="/">
+                    <img src="/images/logo.png" alt="logo" width="50" height="40" >
+                  </a> 
+                </div>
+			
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav" >
+				<% if student_signed_in? %>
+				   <!--  <span>Hello <%= current_student.email %></span> --> 
+	      			<li><%= link_to "All Others Articles", other_articles_path%></li>
+	      			<li><%= link_to "Rent Other Article", other_articles_path(current_student) %></li>
+	      			<li><%= link_to "Sell your Other Article", new_other_article_path, class: "active" %></li>
+	      			<!-- <li><%= link_to "Account", edit_student_registration_path %></li>  -->
+	      			<li><%= link_to "my profile", student_path(current_student) %></li>
+	      			<li><%= link_to "Logout", destroy_student_session_path %></li>
+	      			<!-- <h4>Hello <%= current_student.name %></h4> -->
+	      		<% else %>
+	      			<li><%= link_to('LOGIN', new_student_session_path)  %>
+	      		<% end %>
+			</ul>
+			
+			<%= form_tag search_books_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+				<p>
+					<%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for a book" %>
+					<%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+				</p>	
+			<% end %>
+		</div>
+	</div> 
+</nav>
+
+
+
+	
+ <!-- test is happening here ------------------------------------------------ -->
+<header>
+
+
+</header>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- test is end here ------------------------------------------------ -->
+
+  <div>
+      <%= yield :sidebar %>
+  </div>
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-info") %>
+    <% end %>
+   <%= yield %>
+   </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<!-- ----------------------- new example below ---------------- -->
+
+
+
+
+
+<div style="float:right; margin-right: 5px;" >
+<% if student_signed_in? %>
+	<h4>Welcome, <%= current_student.fname %></h4>
+<% end %>
+ 
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

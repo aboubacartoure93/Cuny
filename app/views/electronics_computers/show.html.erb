@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Electronicstitle:</strong>
+  <%= @electronics_computer.electronicsTitle %>
+</p>
+
+<p>
+  <strong>Electronicsprice:</strong>
+  <%= @electronics_computer.electronicsPrice %>
+</p>
+
+<p>
+  <strong>Availablenow:</strong>
+  <%= @electronics_computer.availableNow %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @electronics_computer.student_id %>
+</p>
+
+<p>
+  <strong>Electronisdescription:</strong>
+  <%= @electronics_computer.electronisDescription %>
+</p>
+
+<p>
+  <strong>Electronicslocation:</strong>
+  <%= @electronics_computer.electronicsLocation %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @electronics_computer.condition %>
+</p>
+
+<%= link_to 'Edit', edit_electronics_computer_path(@electronics_computer) %> |
+<%= link_to 'Back', electronics_computers_path %>

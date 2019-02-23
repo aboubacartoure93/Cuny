@@ -1,0 +1,195 @@
+<!-- <%= form_with(model: tutor, local: true) do |form| %>
+  <% if tutor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tutor.errors.count, "error") %> prohibited this tutor from being saved:</h2>
+
+      <ul>
+      <% tutor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :tutor_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :degree %>
+    <%= form.text_field :degree, id: :tutor_degree %>
+  </div>
+
+  <div class="field">
+    <%= form.label :classTeaching %>
+    <%= form.text_area :classTeaching, id: :tutor_classTeaching %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grades %>
+    <%= form.text_area :grades, id: :tutor_grades %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, id: :tutor_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :schedule %>
+    <%= form.text_area :schedule, id: :tutor_schedule %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, id: :tutor_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.number_field :student_id, id: :tutor_student_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tutorDescription %>
+    <%= form.text_area :tutorDescription, id: :tutor_tutorDescription %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+-->
+<!-- ------------------------------ new try below -------------------------------- -->
+
+
+
+
+<%= form_for @tutor, :html => { :class => "form-horizontal book",  } do |f| %>
+
+  <% if @tutor.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@tutor.errors.count, "error") %> prohibited this book from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% @tutor.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div> 
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :tutor_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' , placeholder: "required", :required => true %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :degree_or_level_of_education, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :degree, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:degree) %>
+  </div>
+
+   <div class="form-group">
+    <%= f.label :Class_To_Teach, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :classTeaching, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:classTeaching) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Grades_in_Class_You_want_to_Teach, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :grades, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:grades) %>
+  </div>
+
+
+
+  <div class="form-group">
+    <%= f.label :price_per_hour, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :price, :class => 'form-control', placeholder: "USD", type: "number" %>
+    </div>
+    <%=f.error_span(:price) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_schedule, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :schedule, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:schedule) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :location, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:location) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Tutor_Description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :tutorDescription, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:tutorDescription) %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :available_now, :class => 'control-label col-lg-2' %>
+     
+     <div class="col-lg-10">
+     <%= f.radio_button :availabletutor, 'true' %> 
+     <%= label :true, 'yes' %>
+      <%= f.radio_button :availabletutor, 'false', :checked => true %>
+      <%= label :false, 'no' %>
+    </div>
+    <%=f.error_span(:availabletutor) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Tutor_email, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :emailtutor, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:emailtutor) %>
+  </div>
+
+ 
+
+  <div class="form-group">
+    <%= f.label :Tutor_Picture, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-10"> <!-- class="col-sm-6" -->
+      <%= f.file_field :photo_tutor, :required => true, autofocus: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                tutors_path, :class => 'btn btn-default' %>
+    </div>
+  </div> 
+<% end %>
+
+
+
+
+
+

@@ -1,8 +1,102 @@
 Rails.application.routes.draw do
-  devise_for :students
-  resources :books
-  root 'books#index'
+  
+  resources :other_articles
+  resources :vehicules
+  resources :electronics_computers
+  resources :housings
+  resources :reviews
+  
+  get '/tutors/home' => 'tutors#home'
+  resources :tutors do
+     collection do
+      get 'search'
+    end
+  end
+
+
+
+
+
+  get 'students/show'
+  devise_for :students, controllers: { registrations: 'registrations' }
+  resources :students #, only:[:update, :show, :edit]
+ # devise_for :students, controllers: { sessions: 'students/sessions' }
+  
+  # root 'books#index'
+  root 'books#home'
+  
   resources :universities 
+
+  resources :conversations do
+    resources :messages
+   end
+  
+  resources :books do
+    resources :conversations #do
+      #resources :messages
+    #end
+    collection do
+      get 'search'
+    end
+  end
+
+   
+
+
+
+  devise_scope :students do
+    get '/students/sign_out' => 'devise/sessions#destroy'
+    get '/students' => 'devise/registrations#update'
+  end
+
+  devise_scope :students do
+    root to: "devise/sessions#new"
+  end
+ 
+
+
+
+
+# get 'users/:id/user_posts' => 'users#user_posts', :as => :custom_user_posts
+
+ 
+
+# get 'students/:id/student_messages' => 'students#students_messages', :as => :custom_student_messages
+
+
+
+
+
+
+
+
+  # resources :students, only:[:update, :show]
+  
+  #devise_for :students#, controllers: #{ registrations: 'students/registrations'} 
+    #as :student do 
+      #get '/students' => 'devise/registrations#edit'
+  #end 
+
+
+ #good one
+  #devise_for :students, controllers: { registrations: 'registrations'}
+  
+  # get 'students/sign_out' => 'devise/sessions#destroy'
+  # get '/logout' => 'devise/sessions#destroy'
+
+  # devise_scope :students do
+  #   delete "sign_out" => "devise/sessions#destroy", :as => :destroy_students_session
+  #   #get "sign_out" => "devise/sessions#destroy"
+  #  #get "logout", to: "devise/sessions#destroy"
+  # end
+  
+  
+
+  # devise_scope :students do 
+  #   get "sign_out" => "devise/sessions#destroy"
+  # end
+
+  #devise_for :users, controllers: { confirmations: 'confirmations' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
