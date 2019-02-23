@@ -47,9 +47,10 @@ gem 'searchkick'
 
 gem "bulma-rails", "~> 0.7.2"
 
-gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+# gem 'will_paginate'
 gem 'api-pagination', '~> 4.8', '>= 4.8.1'
-gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+# gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'private_pub'

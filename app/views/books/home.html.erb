@@ -59,10 +59,11 @@
 
 <!-- New test below --------------------- -->
 
-<%= will_paginate @books, renderer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer", inner_window: 1, outer_window: 0 %>
 
 
 
+
+<%= will_paginate(@books, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, previous_label: "Older", next_label: "Newer", inner_window: 1, outer_window: 0 ,class: 'justify-content-center') %>
 
 
 
