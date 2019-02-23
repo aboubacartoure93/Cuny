@@ -15,7 +15,7 @@ class Student < ActiveRecord::Base
   belongs_to :unversity
 
 
-  validates :email, format: { with: /\.edu\z/, message: "only allows .edu addresses" }
+  #validates :email, format: { with: /\.edu\z/, message: "only allows .edu addresses" }
   # has_attached_file :profilepic, styles: { medium: "300x300#", thumb: "100x100#", icon: "35x35#" }, default_url: "/images/:style/missing.jpg"
   has_attached_file :profilepic, styles: { medium: "300x300#", thumb: "100x100#", icon: "35x35#" }, default_url: "/images/:style/missing.jpg"
   validates_attachment_content_type :profilepic, content_type: /\Aimage\/.*\Z/
