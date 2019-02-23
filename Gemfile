@@ -1,10 +1,5 @@
 source 'https://rubygems.org'
-#gem 'rails', '5.1.4'
-#gem 'rails', '~> 5.2', '>= 5.2.1'
-
-gem 'rails', '~> 5.2', '>= 5.2.2'
-# gem 'pg', '~> 1.1', '>= 1.1.4'
-#gem 'pg', '~> 0.18.4'
+gem 'rails', '5.1.4'
 #gem 'rails', '~> 5.2', '>= 5.2.1'
 gem'devise' 
 gem "therubyracer"
@@ -12,11 +7,7 @@ gem "therubyracer"
 gem 'bootstrap-sass', '~> 3.3.5'
 #gem 'sprockets', '3.6.3'
 # gem 'sprockets', '~> 3.7', '>= 3.7.1'
-#gem 'sprockets', '~> 3.0'
-#gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
-gem 'sprockets', '~> 3.5', '>= 3.5.2'
-#gem 'less-rails', git: 'https://github.com/MustafaZain/less-rails'
-#gem 'less-rails', '~> 4.0'
+gem 'sprockets', '~> 3.0'
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -24,9 +15,7 @@ gem "twitter-bootstrap-rails"
 gem 'vider', github: 'wazery/vider'
 # Use sqlite3 as the database for Active Record
 gem 'sass-rails', '~> 5.0'
-
-
-
+gem 'sqlite3', '~> 1.3.6'
 gem 'mongoid', '~> 6.1.0'
 #gem 'sendgrid-ruby'
 #gem 'sendgrid-ruby'
@@ -44,6 +33,7 @@ gem "paperclip", "~> 5.0.0"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'coffee-script', '~> 2.4', '>= 2.4.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -67,12 +57,6 @@ gem 'thin'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-  gem 'capistrano', '~> 3.7', '>= 3.7.1'
-  gem 'capistrano-rails', '~> 1.2'
-  gem 'capistrano-passenger', '~> 0.2.0'
-  gem 'capistrano-rbenv', '~> 2.1'
-
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -83,24 +67,35 @@ group :development, :test do
   gem 'binding_of_caller', '~> 0.7.2'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  #gem 'sqlite3', '~> 1.3', '>= 1.3.11'
-  gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 3.0'
-  
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
 
-gem 'activesupport', '~> 5.2', '>= 5.2.2'
 
-ruby "2.5.1"
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
