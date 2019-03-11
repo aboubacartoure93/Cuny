@@ -27,6 +27,7 @@ if (location.href.indexOf('reload')==-1)
 
 
 <div class="row">
+  <% if current_student[:admin] == true %>
   <!-- Not implemented on tutorial -->
   <div class="col-md-4">
     <div style="height: 300px; overflow-y: auto;">
@@ -61,6 +62,7 @@ if (location.href.indexOf('reload')==-1)
 
     </div>
     <hr>
+    <% end %>
     <h3>Your Conversations</h3>
 
     <div style="height: 400px; overflow-y: auto;">
