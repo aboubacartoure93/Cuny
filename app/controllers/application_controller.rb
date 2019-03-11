@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   before_action :store_location
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -48,11 +48,11 @@ class ApplicationController < ActionController::Base
   #   end
   # end
 
-  def authorize_admin
-    redirect_to :books, status: 401 unless current_student.admin
-    #redirects to previous page
-end
-
+  def authenticate_admin!
+    unless current_student[params[:admin]] == true
+      
+    end
+  end
 
 
 

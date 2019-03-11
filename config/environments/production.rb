@@ -64,11 +64,25 @@ config.assets.digest = true
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
  
-config.action_mailer.default_url_options = {:host => 'localhost:3000'}
+#config.action_mailer.default_url_options = {:host => 'localhost:3000'}
+
+config.action_mailer.default_url_options = { :host => 'cunyversity.com' }
+ActionMailer::Base.smtp_settings = {
+  :address        => "smtp.sendgrid.net",
+  :port           => "25",
+  :authentication => :plain,
+  # :user_name      => ENV['SENDGRID_USERNAME'],
+  # :password       => ENV['SENDGRID_PASSWORD'],
+  # :domain         => ENV['SENDGRID_DOMAIN']
+
+  :user_name      => "taboubacar",
+  :password       => "1Rightnow1",
+  :domain         => 'cunyversity.com'
+}
 # config.action_mailer.delivery_method = :smtp
 # config.action_mailer.smtp_settings = {
 #   :address => "127.0.0.1",
-#   :port    => 25,
+#   :port    => 25, 
 #   :domain  => 'yourdomain.com'
 # } 
 

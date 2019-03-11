@@ -95,10 +95,23 @@ layout "tutors"
     @tutor = Tutor.find(params[:id])
     @tutor.destroy
     respond_to do |format|
+      if @tutor.destroy
       format.html { redirect_to tutors_url, notice: 'Tutor was successfully destroyed.' }
       format.json { head :no_content }
+      #redirect_to tutor_path(@tutor)
+      end
     end
   end
+
+
+
+
+
+
+
+
+
+
 
   def search
     if params[:search].present?

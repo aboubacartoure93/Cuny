@@ -16,11 +16,11 @@ gem "twitter-bootstrap-rails"
 gem 'vider', github: 'wazery/vider'
 # Use sqlite3 as the database for Active Record
 gem 'sass-rails', '~> 5.0'
-#gem 'sqlite3', '~> 1.3.6'
+gem 'sqlite3', '~> 1.3.6'
 
- gem 'pg', '~> 0.18.4'
+
 gem 'mongoid', '~> 6.1.0'
-#gem 'sendgrid-ruby'
+gem 'sendgrid-ruby'
 #gem 'sendgrid-ruby'
 # Use SCSS for stylesheets
 #gem 'sass-rails', '~> 5.0'
@@ -81,6 +81,9 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'pg', '~> 0.18.4'
+end
 
 
 gem 'capistrano', '~> 3.11'

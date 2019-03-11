@@ -110,7 +110,7 @@ if (location.href.indexOf('reload')==-1)
 
 <% if student_signed_in? && current_student.id != @book.student_id %>  <!-- good one here -->
 
-           <%= link_to "Send MessageBook", "#", class: "btn btn-success btn-xs start-conversation",
+           <%= link_to "Send Message to Owner", "#", class: "btn btn-success btn-xs start-conversation",
                               "data-sid" => current_student.id, "data-rip" =>  @book.student_id %>
 
 <% end -%>
