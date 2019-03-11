@@ -11,7 +11,7 @@ class StudentMailer < ActionMailer::Base
 end
 
 
-end
+
 
   
 
