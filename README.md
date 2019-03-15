@@ -1,3 +1,7 @@
+Aboubacar$ RAILS_ENV=production rake secret
+b8a41e0737d98f9ea95a83aaa6118d59d398372ca7659749cd1b4e05015439bf5c46686ad95b234b3a65d42255c91e2f5bf478a28b7a827217cad85c381bc7ab
+Owners-MacBook-Pro:Cuny Aboubacar$ 
+
 
 
 -----------------------------------------
