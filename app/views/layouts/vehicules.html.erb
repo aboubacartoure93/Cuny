@@ -46,9 +46,9 @@
 			<ul class="nav navbar-nav" >
 				<% if student_signed_in? %>
 				   <!--  <span>Hello <%= current_student.email %></span> --> 
-	      			<li><%= link_to "All Vehicules", vehicules_path %></li>
-	      			<li><%= link_to "Rent or Buy a Vehicule", vehicules_path(current_student) %></li>
-	      			<li><%= link_to "Sell your Vehicule", new_vehicule_path, class: "active" %></li>
+	      			<li><%= link_to "All Cars", vehicules_path %></li>
+	      			<li><%= link_to "Rent or Buy a car", vehicules_path(current_student) %></li>
+	      			<li><%= link_to "Sell your car", new_vehicule_path, class: "active" %></li>
 	      			<!-- <li><%= link_to "Account", edit_student_registration_path %></li>  -->
 	      			<li><%= link_to "my profile", student_path(current_student) %></li>
 	      			<li><%= link_to "Logout", destroy_student_session_path %></li>
