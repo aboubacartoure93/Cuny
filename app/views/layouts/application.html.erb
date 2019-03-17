@@ -14,12 +14,12 @@
   <%= csrf_meta_tags %>
 	 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-3837471042049839",
-          enable_page_level_ads: true
-     });
-</script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-3837471042049839",
+            enable_page_level_ads: true
+       });
+  </script>
 </head>
 
 <body>
@@ -28,12 +28,18 @@
 
 	
  <!-- test is happening here ------------------------------------------------ -->
+<header>
+<%= render 'layouts/header' %>
+
+</header>
 
   
 
 <!-- test is end here ------------------------------------------------ -->
 
- 
+  <div>
+      <%= yield :sidebar %>
+  </div>
   <div class="container">
     <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert alert-info") %>
