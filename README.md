@@ -1,7 +1,16 @@
-Aboubacar$ RAILS_ENV=production rake secret
-b8a41e0737d98f9ea95a83aaa6118d59d398372ca7659749cd1b4e05015439bf5c46686ad95b234b3a65d42255c91e2f5bf478a28b7a827217cad85c381bc7ab
-Owners-MacBook-Pro:Cuny Aboubacar$ 
 
+
+<meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta name="description" content="">
+	  <meta name="author" content="">
+	  <meta content='<%= student_signed_in? ? current_student.id : "" %>' name='student-id'/>
+	  <title>Cunyversity</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	 <!--  <%= csrf_meta_tags %> -->
 
 
 -----------------------------------------
