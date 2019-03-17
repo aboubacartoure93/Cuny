@@ -28,28 +28,12 @@
 
 	
  <!-- test is happening here ------------------------------------------------ -->
-<header>
-<%= render 'layouts/header' %>
-
-</header>
 
   
 
-
-
-
-
-
-
-
-
-
-
 <!-- test is end here ------------------------------------------------ -->
 
-  <div>
-      <%= yield :sidebar %>
-  </div>
+ 
   <div class="container">
     <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert alert-info") %>
