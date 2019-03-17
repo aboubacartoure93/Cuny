@@ -3,7 +3,7 @@
 
   <div class="btn-group-vertical">
   
-   <Button class="btn btn-secondary"><%= link_to "Books", books_path %></Button>
+   <Button class="btn btn-secondary"><%= link_to "CCCBooks", books_path %></Button>
     <Button class="btn btn-secondary"><%= link_to "Electronics", electronics_computers_path %></Button>
     <Button class="btn btn-secondary"><%= link_to "Tutoring", tutors_path %></Button>
     <Button class="btn btn-secondary"><%= link_to "Apartments", housings_path %></Button>
@@ -13,6 +13,9 @@
   </div>
 </div>
 
+<div>
+<%= render 'layouts/sidebar' %>
+</div>
 
 
 <% if student_signed_in? %>
