@@ -1,7 +1,5 @@
 
 
-
-
 <nav class= "navbar navbar-default" role="navigation">   <!-- <nav class="headernav">  -->
 	<div class= "container">                
 		<div class="navbar-header">
@@ -22,13 +20,14 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav" >
 				<% if student_signed_in? %>
-	      			<li><%= link_to "ALL BOOKS", root_path %></li>
-	      			<li><%= link_to "Buy books", books_path(current_student) %></li>
-	      			<li><%= link_to "Sell your Book", new_book_path, class: "active" %></li>
-	      			
+				   <!--  <span>Hello <%= current_student.email %></span> --> 
+	      			<li><%= link_to "ALL TUTORS", tutors_home_path %></li>
+	      			<li><%= link_to "Book a tutor", tutors_path(current_student) %></li>
+	      			<li><%= link_to "Become a tutor", new_tutor_path, class: "active" %></li>
+	      			<!-- <li><%= link_to "Account", edit_student_registration_path %></li>  -->
 	      			<li><%= link_to "my profile", student_path(current_student) %></li>
 	      			<li><%= link_to "Logout", destroy_student_session_path %></li>
-	      			
+	      			<!-- <h4>Hello <%= current_student.name %></h4> -->
 	      		<% else %>
 	      			<li><%= link_to('LOGIN', new_student_session_path)  %>
 	      		<% end %>
@@ -43,20 +42,6 @@
 		</div>
 	</div> 
 </nav>
-
-
-
-
-<div style="float:right; margin-right: 5px;" >
-<% if student_signed_in? %>
-	<h4>Welcome, <%= current_student.fname %></h4>
-<% end %>
- 
-
-
-</div>
-
-
 
 
 
