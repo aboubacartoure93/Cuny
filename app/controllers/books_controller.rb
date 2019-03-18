@@ -30,7 +30,7 @@ class BooksController < ApplicationController
    #@books= Book.books_by_not_current_student(current_student)
    @books = Book.where.not(student_id: current_student.id).order("created_at DESC").paginate(page: params[:page], per_page: 8)
 
- puts response.headers['layouts/_header'] = 'header'
+ #puts response.headers['layouts/_header'] = 'header'
   #render "layouts/_header"
   end
 
