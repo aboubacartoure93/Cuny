@@ -19,4 +19,3 @@
 //= require private_pub
 //= require_tree .
 
-//= require jquery.vide

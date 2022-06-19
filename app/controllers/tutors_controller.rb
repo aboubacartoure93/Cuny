@@ -10,16 +10,16 @@ layout "tutors"
   # def index
   #   @tutors = Tutor.all
   # end
- 
+  
 
    def home
     @student = current_student
-    @tutors = Tutor.all.order("created_at DESC").paginate(page: params[:page], per_page: 8)
+    @tutors = Tutor.all.order("created_at DESC").paginate(page: params[:page], per_page: 16)
   end
 
   def index
    # @book = Book.posts_by_not_current_student(current_student)
-   @tutors = Tutor.where.not(student_id: current_student.id).order("created_at DESC").paginate(page: params[:page], per_page: 8)
+   @tutors = Tutor.where.not(student_id: current_student.id).order("created_at DESC").paginate(page: params[:page], per_page: 16)
   end
 
 
@@ -102,15 +102,6 @@ layout "tutors"
       end
     end
   end
-
-
-
-
-
-
-
-
-
 
 
   def search

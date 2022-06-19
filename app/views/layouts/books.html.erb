@@ -1,6 +1,6 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
+  <head>
   <meta charset="utf-8">
   <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,27 +11,26 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-   <%= csrf_meta_tags %>
-</head>
+  <%= csrf_meta_tags %>
+  </head>
 
-	<body>
+  <body>
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/sidebar' %>
 
- 		<%= render 'layouts/header' %>
+  	<div>
+  		<%= yield :sidebar %>
+  	</div>
 
-		<div>
-		    <%= yield :sidebar %>
-		</div>
-
-        <div class="container">
-    		<% flash.each do |name, msg| %>
-      		<%= content_tag(:div, msg, class: "alert alert-info") %>
-    	<% end %>
-   			<%= yield %>
-   		</div>
-    
-	</body>
+    <div class="container">
+  		<% flash.each do |name, msg| %>
+    	  <%= content_tag(:div, msg, class: "alert alert-info") %>
+  	  <% end %>
+  			<%= yield %>
+  	</div>
+      
+  </body>
 </html>
-
 
 
 

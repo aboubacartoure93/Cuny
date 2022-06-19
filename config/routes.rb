@@ -13,6 +13,13 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/electronics_computers/home' => 'electronics_computers#home'
+  resources :electronics_computers do
+     collection do
+      get 'search'
+    end
+  end
+
 
 
 
@@ -49,9 +56,9 @@ Rails.application.routes.draw do
     get '/students' => 'devise/registrations#update'
   end
 
-  devise_scope :students do
-    root to: "devise/sessions#new"
-  end
+  # devise_scope :students do
+  #   root to: "devise/sessions#new"
+  # end
  
 
 

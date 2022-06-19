@@ -10,3 +10,4 @@ class Tutor < ApplicationRecord
 
 
 end
+   

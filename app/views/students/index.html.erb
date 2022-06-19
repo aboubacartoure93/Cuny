@@ -48,7 +48,11 @@ if (location.href.indexOf('reload')==-1)
           <% @students.each_with_index do |student, index| %>
               <tr>
                 <td><%= index +=1 %></td>
-                <td><%= student.name %></td>
+                  <% if student.name.blank? %>
+                    <td><%= student.email[0...18] %></td>
+                  <% else %>  
+                    <td><%= student.name %></td>
+                  <% end %>
                 <td>
                   <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversationSimple",
                               "data-sid" => current_student.id, "data-rip" => student.id %>
@@ -73,7 +77,17 @@ if (location.href.indexOf('reload')==-1)
                   <%= image_tag("http://placehold.it/50x50", class: "media-object pull-left") %>
                   <div class="media-body">
                     <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
-                    <h4 class="media-heading"><%= conversation_interlocutor(conversation).pseudo %></h4>
+                  
+                  <% if  conversation_interlocutor(conversation).present? %>
+                    <% if conversation_interlocutor(conversation).pseudo.nil? %>
+                      <h4 class="media-heading"><%= conversation_interlocutor(conversation).email %></h4>
+                    <% else %>
+                      <h4 class="media-heading"><%= conversation_interlocutor(conversation).pseudo %></h4>
+                    <% end %>
+                  <% else %>
+                          <%= "user delete his or her account"%>
+                  <% end %>
+
                         <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.body, length: 45) %></p>
                   </div>
                 </li>

@@ -12,9 +12,16 @@ class Book < ActiveRecord::Base
   	validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   	scope :books_by_not_current_student, ->(student) { where.not(student: student) }
 
-
+  	# def self.search(search)
+  	# 	if search
+   #  		find(:all, :name => ['name LIKE ?', "%#{search}%"])
+  	# 	else
+   #  		find(:all)
+  	# 	end
+  	# end
   	
 
 
 
 end
+ 

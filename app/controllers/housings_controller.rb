@@ -1,21 +1,33 @@
 class HousingsController < ApplicationController
-  before_action :set_housing, only: [:show, :edit, :update, :destroy]
+  include HousingsHelper
+  before_action :authenticate_student!, except:[ :show, :home]
+  before_action :set_housing, only: [:show, :edit, :update, :destroy, :home]
 
   layout "housings"
   # GET /housings
   # GET /housings.json
+
+  def home
+    @student = current_student
+    @housings = Housing.all.order("created_at DESC").paginate(page: params[:page], per_page: 16)
+  end
+
   def index
-    @housings = Housing.all
+    #@housings = Housing.all 
+    @housings = Housing.where.not(student_id: current_student.id).order("created_at DESC").paginate(page: params[:page], per_page: 16)
   end
 
   # GET /housings/1
   # GET /housings/1.json
   def show
+    @housing = Housing.find(params[:id])
+    @student = @housing.student
   end
 
   # GET /housings/new
   def new
     @housing = Housing.new
+    @housing= current_student.housings.build
   end
 
   # GET /housings/1/edit

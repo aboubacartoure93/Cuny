@@ -1,8 +1,12 @@
 <div class="chatboxhead">
   <div class="chatboxtitle">
     <i class="fa fa-comments"></i>
-
+  
+  <% if @reciever.pseudo.blank? %>
+    <td><%= @reciever.email[0...18] %></td>
+  <% else %>
     <h1><%= @reciever.pseudo %> </h1>
+  <% end %>
   </div>
   <div class="chatboxoptions">
     <%= link_to "<i class='fa  fa-minus'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @conversation.id %>
@@ -28,3 +32,4 @@
 <!-- @book.student_id -->
 
 <!-- @reciever.name -->
+

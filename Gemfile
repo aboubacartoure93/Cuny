@@ -1,9 +1,16 @@
 source 'https://rubygems.org'
+
+ruby "3.1.2"
+
 #gem 'rails', '5.1.4'
-gem 'rails', '~> 5.2', '>= 5.2.1'
 #gem 'rails', '~> 5.2', '>= 5.2.1'
+gem 'rails', '~> 7.0', '>= 7.0.3'
 gem'devise' 
-gem "therubyracer"
+
+gem 'activesupport', '~> 7.0', '>= 7.0.3'
+
+#gem 'therubyracer', '~> 0.12.3'
+#gem 'therubyracer'
 # gem 'less-rails-bootstrap', '~> 3.3', '>= 3.3.5.0'
 gem 'bootstrap-sass', '~> 3.3.5'
 #gem 'sprockets', '3.6.3'
@@ -13,13 +20,19 @@ gem 'sprockets', '~> 3.0'
 gem "twitter-bootstrap-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
-gem 'vider', github: 'wazery/vider'
+gem 'elasticsearch', '~> 5.0', '>= 5.0.4'
+
+#gem 'vider', github: 'wazery/vider'
+gem 'vider', '~> 0.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'sass-rails', '~> 5.0'
-gem 'sqlite3', '~> 1.3.6'
+#gem 'sqlite3', '~> 1.3.6'
+gem 'sqlite3'
 
 
-gem 'mongoid', '~> 6.1.0'
+#gem 'mongoid', '~> 6.1.0'
+gem 'mongoid', '~> 7.4'
+
 gem 'sendgrid-ruby'
 #gem 'sendgrid-ruby'
 # Use SCSS for stylesheets
@@ -32,7 +45,9 @@ gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem "paperclip", "~> 5.0.0"
+#gem "paperclip", "~> 5.0.0"
+#gem 'paperclip', '~> 6.1'
+gem 'kt-paperclip', '~> 7.1', '>= 7.1.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -40,11 +55,16 @@ gem 'coffee-script', '~> 2.4', '>= 2.4.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+#gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+#gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 2.4', group: :doc
 
 gem "mini_magick"
+#gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+#gem 'mimemagic', '~> 0.4.3'
+#gem 'mini_magick', '~> 4.11'
 
 #gem 'searchkick'
 gem 'searchkick', '~> 3.1', '>= 3.1.2'
@@ -61,7 +81,13 @@ gem 'private_pub'
 gem 'thin'
 # Use Unicorn as the app server
 # gem 'unicorn'
+#gem 'contentful', '~> 2.16', '>= 2.16.3'
+gem 'contentful', '~> 2.16', '>= 2.15.3'
 
+gem 'json', '~> 2.6', '>= 2.6.2'
+
+#gem 'puma', '~> 2.15', '>= 2.15.3'
+gem 'puma', '~> 5.6', '>= 5.6.4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -69,7 +95,9 @@ group :development, :test do
   gem 'better_errors'
   gem 'guard'
   gem 'guard-livereload'
-  gem 'binding_of_caller', '~> 0.7.2'
+  gem "binding_of_caller"
+  #gem "binding_of_caller"
+  #gem 'binding_of_caller', '~> 0.7.2'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
@@ -83,7 +111,8 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '~> 0.18.4'
+  #gem 'pg', '~> 0.18.4'
+  gem 'pg'   #move on for now
 end
 
 
