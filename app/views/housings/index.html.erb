@@ -1,22 +1,54 @@
 <div  class= "vertivcalnacBook">
 
   <div class="btn-group-vertical">
-  
     <Button class="btn btn-secondary"><%= link_to "Books", books_path %></Button>
     <Button class="btn btn-secondary"><%= link_to "Electronics", electronics_computers_path %></Button>
     <Button class="btn btn-secondary"><%= link_to "Tutoring", tutors_path %></Button>
     <Button class="btn btn-secondary"><%= link_to "Apartments", housings_path %></Button>
     <Button class="btn btn-secondary"><%= link_to "Cars", vehicules_path %></Button>
     <Button class="btn btn-secondary"><%= link_to "Others", other_articles_path %></Button>
-  
-  
   </div>
+
+</div>
+ 
+
+ <%- model_class = Student -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.update', 'For Sale'] %></h1>
 </div>
 
 
 
 
-<p id="notice"><%= notice %></p>
+<% @housings.each do |housing|%>
+  <!-- <div class="col-sum-6 col-md-3"> -->
+  <div class="p-places">
+    <div class="thumbnail">     
+      <%= link_to (image_tag housing.housephoto.url(:medium)), housing_path(housing, continue: edit_housing_path(housing)) %>
+      <div class="p-description">
+        <p> <%= housing.housingTitle %></p>
+        <p>$<%= housing.housePrice %></p>
+      </div>
+    </div>
+  </div>
+<% end -%>
+
+
+
+
+
+
+
+
+
+
+
+<!--   Add paginate later. -->
+ 
+
+
+
+<!-- <p id="notice"><%= notice %></p>
 
 <h1>Housings</h1>
 
@@ -57,3 +89,4 @@
 <br>
 
 <%= link_to 'New Housing', new_housing_path %>
+ -->

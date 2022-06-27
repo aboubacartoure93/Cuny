@@ -41,6 +41,15 @@ end
     name += lname
   end
 
+    def destroy
+    @student = Student.find(params[:id])
+    @student.destroy
+
+    if @student.destroy
+        redirect_to root_url, notice: "Account deleted."
+    end
+  end
+
 
 
 

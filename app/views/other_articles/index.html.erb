@@ -11,9 +11,40 @@
   </div>
 </div>
 
+ 
+ <%- model_class = Student -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.update', 'For Sale'] %></h1>
+</div>
+
+ 
+
+
+<% @other_articles.each do |other_article| %>
+  <!-- <div class="col-sum-6 col-md-3"> -->
+  <div class="p-places">
+    <div class="thumbnail">     
+      <%= link_to (image_tag other_article.otherarticle_photo.url(:medium)),
+      other_article_path(other_article, continue: edit_other_article_path(other_article)) %>
+      <div class="p-description">
+        <p> <%= other_article.other_articleTitle %></p>
+        <p>$<%= other_article.othersPrice %></p>
+      </div>
+    </div>
+  </div>
+<% end -%>
 
 
 
+
+
+
+
+
+
+
+
+<!-- 
 <p id="notice"><%= notice %></p>
 
 <h1>Other Articles</h1>
@@ -53,3 +84,4 @@
 <br>
 
 <%= link_to 'New Other Article', new_other_article_path %>
+ -->

@@ -85,7 +85,7 @@ layout "electronics"
   #   end
   # end
 
-    def destroy
+  def destroy
     @electronics_computer = ElectronicsComputer.find(params[:id])
     @electronics_computer.destroy
     respond_to do |format|
@@ -109,7 +109,8 @@ layout "electronics"
     # Never trust parameters from the scary internet, only allow the white list through.
     def electronics_computer_params
       params.require(:electronics_computer).permit(:electronicsTitle, :electronicsPrice, 
-        :availableNow, :student_id, :electronisDescription, :electronicsLocation, :condition, :electronicsphoto)
+        :availableNow, :student_id, :electronisDescription, :electronicsLocation, :condition, 
+        :electronicsphoto, :electronicsComputerEmail)
     end
 end
 

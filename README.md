@@ -1,6 +1,9 @@
 CUNYversity: Cunyversity is a marketplace that allows student to exchange goods and services safely.
 
-Day:3 (update when finish)
+Moto: Everything a studeny needs...!
+
+
+Day:5 (update when finish)
 
 -----------------------------------------
 vim ~/.bashrc
@@ -25,10 +28,18 @@ cunyversity1@hotmail.com : pass: rightn....
 
 https://myaccount.google.com/lesssecureapps (allowing less secure email with gmail)
  
- 
+  
  --------------------------To Do list - most important in the top---------------------------------------------------------   
 
 MVP********************
+
+(fix 2 models, controller, then views)
+-admin can create universties & modifies it, create post visible by everyone (Ads), send message to anyone
+-paginate problem
+-housing, electronics, etc.... attributes in view design need to be finish
+
+
+
 
 -other item, articles (add description to book)
 -facebook aouth
@@ -39,6 +50,8 @@ MVP********************
 
 -email sent in sign up (need to look good, not plain text)
 -change to Sendgrid
+
+- add location(google api), student can get recommendation for local business around...
 
 -housing for sale or rent(add to database and separate in views), create databae sell or rent
 
@@ -117,13 +130,90 @@ cunyversity:
 
 ------------------------------------------monday 01/14/2019------------
 
----------------------------------------------------------------------------------------------------------------------
+---------good links to check-----------------------------------------------------------------------
+https://www.programmableweb.com/news/10-top-apis-rentals/brief/2020/08/02
+https://api.collegeai.com/v1/docs/user-interface/college-list
+https://www.ucribs.com/about-us/
+https://github.com/endSly/world-universities-csv/blob/master/world-universities.csv
+https://github.com/flyeven/universities
+
+https://www.youtube.com/watch?v=Qur-Pdep4zg (many to many videos)
 
 
+------------------------------python code to split email------------------------------------------------------
+
+website = 'aboubacar.toure36@myhunter.cuny.edu'
+email = 'https://hunter.cuny.edu/'
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz.@'
+
+newb =''
+for letter in email:
+    if letter in alphabet:
+        newb +=letter
+
+#print(newb)        
+
+x = newb.split(".")
+
+print(x)
+
+final = x[-2]+'.'+ x[-1]
+
+print(final)
 
 
+------------------final split-------------
+emailList =[]
+with open('emailList.txt') as Book:
+    for line in Book:
+        emailList.append(line.split(','))
+
+finalList =[]
+for a in emailList:
+    finalList.append(a[2])
+
+def cleanedup(s):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz.@,-0123456789'
+    cleantext = ''
+    for character in s.lower():
+        if character in alphabet:
+            cleantext += character
+        else:
+            cleantext += ' '
+    return cleantext
+
+bestList =[]
+for a in finalList:
+    bestList.append(cleanedup(a))
+
+print(len(bestList)) #print
+
+for x in bestList:
+    print(x)
+
+f = open("eduData.txt", "w")
+content = str(bestList)
+f.write(content)
+f.close()
 
 
+-------------------------university database schema-----------------------------------------------------------
+
+
+many to many relationship
+
+every student below to Global University
+
+-university:
+-id
+-name
+-website
+-domain: edu (primary key)
+-photo
+
+an student can only create if university doesn't exist in already
+an Admin can create, modify , delete, CRUD
 
 
 
@@ -144,6 +234,25 @@ cunyversity:
 
 
  -------------------------------------deleted code --starting 06/03/22----------------------------------------
+
+
+
+class RemoveForeignKey < ActiveRecord::Migration[7.0]
+  def change
+    # remove the old foreign_key
+    remove_foreign_key :messages, :students
+  end
+end
+
+# class AddDomainEduToUniversities < ActiveRecord::Migration[7.0]
+#   def change
+#     add_column :universities, :domainEdu, :string
+#   end
+# end
+-------------------------------
+
+
+
 
 <% content_for(:sidebar) do %>
   <%= render :partial => "layouts/sidebar" %>

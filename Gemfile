@@ -29,6 +29,7 @@ gem 'sass-rails', '~> 5.0'
 #gem 'sqlite3', '~> 1.3.6'
 gem 'sqlite3'
 
+gem 'eventmachine', '~> 1.2', '>= 1.2.7'
 
 #gem 'mongoid', '~> 6.1.0'
 gem 'mongoid', '~> 7.4'
@@ -72,11 +73,12 @@ gem 'searchkick', '~> 3.1', '>= 3.1.2'
 gem "bulma-rails", "~> 0.7.2"
 
 gem 'bootstrap-will_paginate'
-# gem 'will_paginate'
+#gem 'will_paginate'
+gem 'will_paginate', '~> 3.3', '>= 3.3.1'
 gem 'api-pagination', '~> 4.8', '>= 4.8.1'
 # gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 gem 'private_pub'
 gem 'thin'
 # Use Unicorn as the app server
@@ -105,6 +107,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 3.0'
+  #gem 'super-pry-rails', '~> 0.1.1'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

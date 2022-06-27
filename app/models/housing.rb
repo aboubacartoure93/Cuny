@@ -10,7 +10,7 @@ class Housing < ApplicationRecord
 
 end
 
-
+ 
 
 # class ElectronicsComputer < ApplicationRecord
 

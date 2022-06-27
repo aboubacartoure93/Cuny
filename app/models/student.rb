@@ -17,7 +17,7 @@ class Student < ActiveRecord::Base
   has_many :conversations, :foreign_key => :sender_id, dependent: :destroy
   has_many :conversations, :foreign_key => :recipient_id, dependent: :destroy
   
-  belongs_to :unversity
+  #belongs_to :unversity
 
 
 

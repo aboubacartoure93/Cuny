@@ -14,6 +14,38 @@
 
 
 
+ <%- model_class = Student -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.update', 'For Sale'] %></h1>
+</div>
+
+ 
+
+
+<% @vehicules.each do |vehicule| %>
+  <!-- <div class="col-sum-6 col-md-3"> -->
+  <div class="p-places">
+    <div class="thumbnail">     
+      <%= link_to (image_tag vehicule.vehicule_photo.url(:medium)),
+      vehicule_path(vehicule, continue: edit_vehicule_path(vehicule)) %>
+      <div class="p-description">
+        <p> <%= vehicule.vehiculeTitle %></p>
+        <p>$<%= vehicule.vehiculePrice %></p>
+      </div>
+    </div>
+  </div>
+<% end -%>
+
+ 
+
+
+
+
+
+
+
+
+<!-- 
 <p id="notice"><%= notice %></p>
 
 <h1>Vehicules</h1>
@@ -58,4 +90,4 @@
 
 <br>
 
-<%= link_to 'New Vehicule', new_vehicule_path %>
+<%= link_to 'New Vehicule', new_vehicule_path %> -->

@@ -51,13 +51,12 @@ class BooksController < ApplicationController
 
   def show
   @book = Book.find(params[:id])
+  @student = @book.student
 
   #@students = Student.where.not("id = ?",current_student.id).order("created_at DESC")
   #@conversations = Conversation.involving(current_student).order("created_at DESC")
-  # @place = @event.place
-  @student = @book.student
-
-   #@path = conversation_path(@conversation)
+  #@place = @event.place
+  #@path = conversation_path(@conversation)
   end
 
 
