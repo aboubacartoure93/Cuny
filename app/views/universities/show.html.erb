@@ -1,14 +1,107 @@
-<p id="notice"><%= notice %></p>
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "chat.js" %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @university.name %>
-</p>
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "books.js" %>
+<% end %>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @university.photo %>
-</p>
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "create.js.erb" , skip_pipeline: true %>
+<% end %>
 
-<%= link_to 'Edit', edit_university_path(@university) %> |
-<%= link_to 'Back', universities_path %>
+
+ 
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<script type="text/javascript">
+
+if (location.href.indexOf('reload')==-1)
+{
+   location.href=location.href+'?reload';
+}
+</script>  <!-- #reload page for chatbox javascript to load -->
+
+
+
+<!-- ********************* Abou modification a partir en bas****************
+ -->
+
+ <%- model_class = Student -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.update', 'university'] %></h1>
+</div>
+ 
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag @university.university_photo.url(:medium) %>
+        <div class="table-responsive"></div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><strong>Name:</strong></td>
+              <td><%= @university.name %> </td>
+            </tr>
+
+            <tr>
+              <td><strong>website:</strong></td>
+              <td><%= @university.website %> </td>
+            </tr>
+
+            <tr>
+              <td><strong>domain Edu:</strong></td>
+              <td><%= @university.domainEdu %> </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+
+    </div>
+  </div>
+
+</div>
+ 
+
+
+
+<% if current_student[:admin] != true %>
+	<% if student_signed_in? && current_student.id != @university.student_id %>  <!-- good one here -->
+
+	           <%= link_to "Send Message to university administration", "#", class: "btn btn-success btn-xs start-conversation",
+	                              "data-sid" => current_student.id, "data-rip" =>  @university.student_id %>
+												<!-- TO FIX:this not sending message to admin  -->
+          
+              <%= link_to "Click to Join this university", 
+              join_student_university_path(current_student.id, @university.id), method: "post" %>
+
+	<% end -%>
+<% end -%>
+
+
+
+  <% if current_student[:admin] == true %>
+            <%= link_to t('.back', :default => t("helpers.links.back")),
+                          universities_path, :class => 'btn btn-default'  %>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_university_path(@university), :class => 'btn btn-default' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          university_path(@university),
+                          :method => 'delete',
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-danger' %>
+ 
+
+  <% end -%> 
+
+
+
+
+
+
+
+
+

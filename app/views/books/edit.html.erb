@@ -25,6 +25,23 @@
     </div> 
   <% end %>
 
+
+  <!--      new test begin here,  add university to listing ------------------------------ -->
+
+
+  <div class="form-group">
+      <%= f.label "University to post in", class: 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+
+            <% universities_array = 
+           JoinUniversitiesStudent.includes(:student, :university).where(student: { id: @current_student.id }).map { |student| [student.university.name,  student.university.id] }  %>
+        <%= f.select(:university_id, options_for_select(universities_array), { include_blank: true }) %>
+      </div>
+    </div>
+ 
+ 
+<!--      end,  add university to listing ------------------------------ -->
+
   <div class="form-group">
     <%= f.label :title, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">

@@ -53,6 +53,8 @@ class VehiculesController < ApplicationController
   # end
 
 
+
+
    def create
     @vehicule = current_student.vehicules.build(vehicule_params)
 

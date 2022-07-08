@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_26_205649) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_06_192811) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_26_205649) do
     t.datetime "updated_at", precision: nil, null: false
     t.integer "student_id"
     t.string "condition"
+    t.integer "university_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -73,6 +74,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_26_205649) do
     t.boolean "availableNow"
     t.string "housingemail"
     t.string "housingTitle"
+  end
+
+  create_table "join_universities_students", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "university_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_join_universities_students_on_student_id"
+    t.index ["university_id"], name: "index_join_universities_students_on_university_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -195,6 +205,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_26_205649) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "website"
     t.string "domainEdu"
+    t.string "university_photo_file_name"
+    t.string "university_photo_content_type"
+    t.bigint "university_photo_file_size"
+    t.datetime "university_photo_updated_at"
+    t.integer "student_id"
   end
 
   create_table "vehicules", force: :cascade do |t|
@@ -218,5 +233,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_26_205649) do
     t.string "vehiculeTitle"
   end
 
+  add_foreign_key "join_universities_students", "students"
+  add_foreign_key "join_universities_students", "universities"
   add_foreign_key "messages", "conversations"
 end

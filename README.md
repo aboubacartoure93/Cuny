@@ -1,9 +1,9 @@
 CUNYversity: Cunyversity is a marketplace that allows student to exchange goods and services safely.
 
-Moto: Everything a studeny needs...!
+Moto: Everything a student needs...!
 
 
-Day:5 (update when finish)
+Day:6 (update when finish)
 
 -----------------------------------------
 vim ~/.bashrc
@@ -140,6 +140,9 @@ https://github.com/flyeven/universities
 https://www.youtube.com/watch?v=Qur-Pdep4zg (many to many videos)
 
 
+https://dev.to/neshaz/join-table-in-rails-23b5
+
+
 ------------------------------python code to split email------------------------------------------------------
 
 website = 'aboubacar.toure36@myhunter.cuny.edu'
@@ -217,15 +220,27 @@ an Admin can create, modify , delete, CRUD
 
 
 
+@@@@@@@@@@@@@@@@@
+-show item belonging to an university only
+-verify student email before a student join an university
+
+
+-If you don't belong to a university you can't post there
 
 
 
+-make every student belong to public university
+-show item belonging to an university only
+-verify student email before a student join an university
+-make admin join every university
 
 
 
+ <% universities_array = 
+JoinUniversitiesStudent.all.map { |student| [student.university.name, current_student.id] } %>
 
-
-
+ <% universities_array = JoinUniversitiesStudent.all.map { |student| [student.university.name] } %>
+<%= f.select(:university_id, options_for_select(universities_array), { include_blank: true }) %>
 
 
 
@@ -237,46 +252,7 @@ an Admin can create, modify , delete, CRUD
 
 
 
-class RemoveForeignKey < ActiveRecord::Migration[7.0]
-  def change
-    # remove the old foreign_key
-    remove_foreign_key :messages, :students
-  end
-end
 
-# class AddDomainEduToUniversities < ActiveRecord::Migration[7.0]
-#   def change
-#     add_column :universities, :domainEdu, :string
-#   end
-# end
--------------------------------
-
-
-
-
-<% content_for(:sidebar) do %>
-  <%= render :partial => "layouts/sidebar" %>
-<% end %>
-
-
-
-
- /*
-//= require jquery.vide
-
-*/
-----------------
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/opt/v8@3.15/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/opt/file-formula/bin:$PATH"
-
-# Setting PATH for Python 3.10
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
 
 
 

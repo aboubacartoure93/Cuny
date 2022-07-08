@@ -34,6 +34,35 @@ Rails.application.routes.draw do
   
   resources :universities 
 
+  resources :students do
+    resources :universities do
+      member do
+        post 'join'
+        delete 'leave'
+      end
+    end
+  end
+
+
+  # resources :universities do
+  #   resources :students
+  # end
+
+
+  # resources :places do
+  #   resources :events, shallow: true do
+  #     member do
+  #       post 'join'
+  #       delete 'leave'
+  #     end
+  #     resources :posts, shallow: true, only:[:create]
+  #   end
+  # end
+
+
+
+
+
   resources :conversations do
     resources :messages
    end

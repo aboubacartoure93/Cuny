@@ -17,9 +17,10 @@ class Student < ActiveRecord::Base
   has_many :conversations, :foreign_key => :sender_id, dependent: :destroy
   has_many :conversations, :foreign_key => :recipient_id, dependent: :destroy
   
-  #belongs_to :unversity
+  has_many :join_universities_students
+  has_many :universities, through: :join_universities_students #, source: "university"
 
-
+  #has_many :joined_events, through: :events_users, source: "event"
 
   #validates :email, format: { with: /\.cuny.edu\z/, with:/\.suny.edu\z/, with:/\.nyu.edu\z/, message: "only allows cuny.edu addresses" }
   # has_attached_file :profilepic, styles: { medium: "300x300#", thumb: "100x100#", icon: "35x35#" }, default_url: "/images/:style/missing.jpg"
@@ -33,7 +34,7 @@ class Student < ActiveRecord::Base
 
 
 
-end  
+end   
 
 
 

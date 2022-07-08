@@ -3,6 +3,7 @@ class Book < ActiveRecord::Base
 	attr_accessor :avatar
 	#has_many :books
 	belongs_to :student
+  belongs_to :university
 
 
 	has_attached_file :avatar, styles: { medium: "223x300#", thumb: "100x100#" }, default_url: "/images/:style/missing.png"

@@ -206,7 +206,8 @@ end
     # Record.find_by(id: params[:id])
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :price, :avaibility, :email, :isbn, :avatar, :condition, :student_id)
+      params.require(:book).permit(:title, :author, :price, :avaibility, :email, :isbn, :avatar, :condition,
+       :student_id, :university_id)
     end
   end
 

@@ -14,14 +14,16 @@
     <div class="row">
       <div class="col-md-4">
         <% if @student.profilepic? %>
-    <div class="profilepic"> <%= image_tag @student.profilepic.url(:medium) %></div><br>
-<% end %>
+          <div class="profilepic"> <%= image_tag @student.profilepic.url(:medium) %></div><br>
+        <% end %>
 
-<!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
-  <ul class="nav navbar-nav">
-    <li><%= link_to "Edit Profile", edit_student_registration_path(current_student) %></li>
-    <li><%= link_to "Your Conversations", students_path(current_student) %></li>
-  </ul>
+      <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Edit Profile", edit_student_registration_path(current_student) %></li>
+          <li><%= link_to "Your Conversations", students_path(current_student) %></li>
+          <li><%= link_to "Join an University", universities_path(current_student) %></li>
+
+        </ul>
 <!-- </div> -->
 
         <div class="table-responsive"></div>
@@ -43,7 +45,12 @@
               <td><strong>Pseudo:</strong></td>
               <td><%=  @student.pseudo %> </td>
             </tr>
-
+            <tr>
+              <td><strong>Your current university:</strong></td>
+              <% @student.universities.each do |university|%>
+                <td><%= university.name %> </td>
+              <% end %>
+            </tr>
           </tbody>
         </table>
         
@@ -54,7 +61,6 @@
 
 </div>
  
-
 
 
 
