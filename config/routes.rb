@@ -13,6 +13,13 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/electronics_computers/home' => 'electronics_computers#home'
+  resources :electronics_computers do
+     collection do
+      get 'search'
+    end
+  end
+
 
 
 
@@ -26,6 +33,35 @@ Rails.application.routes.draw do
   root 'books#home'
   
   resources :universities 
+
+  resources :students do
+    resources :universities do
+      member do
+        post 'join'
+        delete 'leave'
+      end
+    end
+  end
+
+
+  # resources :universities do
+  #   resources :students
+  # end
+
+
+  # resources :places do
+  #   resources :events, shallow: true do
+  #     member do
+  #       post 'join'
+  #       delete 'leave'
+  #     end
+  #     resources :posts, shallow: true, only:[:create]
+  #   end
+  # end
+
+
+
+
 
   resources :conversations do
     resources :messages
@@ -49,9 +85,9 @@ Rails.application.routes.draw do
     get '/students' => 'devise/registrations#update'
   end
 
-  devise_scope :students do
-    root to: "devise/sessions#new"
-  end
+  # devise_scope :students do
+  #   root to: "devise/sessions#new"
+  # end
  
 
 

@@ -10,31 +10,32 @@ class BooksController < ApplicationController
   #   @books = Book.all
   #   #@books = Book.where(follower_id: current_user.id, followed_id: current_user.id)
   # end
-  def search
-    if params[:search].present?
-      @books = Book.search(params[:search])
-    else
-      @books = Book.all
-    end
-    
-  end
-
-
-  def home
-    @books = Book.all.order("created_at DESC").paginate(page: params[:page], per_page: 8)
-  end
-
-
-  def index
+  
+   def index
    #@book = Book.posts_by_not_current_student(current_student)
    #@books= Book.books_by_not_current_student(current_student)
-   @books = Book.where.not(student_id: current_student.id).order("created_at DESC").paginate(page: params[:page], per_page: 8)
+   @books = Book.where.not(student_id: current_student.id).order("created_at DESC").paginate(page: params[:page], per_page: 16)
 
  #puts response.headers['layouts/_header'] = 'header'
   #render "layouts/_header"
   end
 
+  def home
+    @books = Book.all.order("created_at DESC").paginate(page: params[:page], per_page: 16)
+  end
 
+
+
+
+
+  def search
+    if params[:search].present?
+      # @books = Book.search(params[:search])
+      @books = Book.where('title LIKE ?', '%' + params[:search] + '%')
+    else
+      @books = Book.all
+    end
+  end
 
 
 
@@ -50,13 +51,12 @@ class BooksController < ApplicationController
 
   def show
   @book = Book.find(params[:id])
+  @student = @book.student
 
   #@students = Student.where.not("id = ?",current_student.id).order("created_at DESC")
   #@conversations = Conversation.involving(current_student).order("created_at DESC")
-  # @place = @event.place
-  @student = @book.student
-
-   #@path = conversation_path(@conversation)
+  #@place = @event.place
+  #@path = conversation_path(@conversation)
   end
 
 
@@ -206,7 +206,8 @@ end
     # Record.find_by(id: params[:id])
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :price, :avaibility, :email, :isbn, :avatar, :condition, :student_id)
+      params.require(:book).permit(:title, :author, :price, :avaibility, :email, :isbn, :avatar, :condition,
+       :student_id, :university_id)
     end
   end
 

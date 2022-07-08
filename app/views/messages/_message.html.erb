@@ -5,7 +5,15 @@
   <div class="chatboxmessagecontent">
     <p><%= message.body %></p>
     <time datetime="<%= message.created_at %>" title="<%= message.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
-      <%= message_interlocutor(message).pseudo %> • <%= message.created_at.strftime("%H:%M %p") %>
+      
+    <% if message_interlocutor(message).pseudo.blank? %>
+    	<%= message_interlocutor(message).email[0...18] %> • <%= message.message_time %>
+    <% else %>
+      <%= message_interlocutor(message).pseudo %> • <%= message.message_time %>
+    <% end %>
     </time>
   </div>
 </li>
+
+
+

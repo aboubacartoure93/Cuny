@@ -1,3 +1,96 @@
+<%= form_for @vehicule, :html => { :class => "form-horizontal book",  } do |f| %>
+
+  <% if @vehicule.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@vehicule.errors.count, "error") %> prohibited this vehicule from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% @vehicule.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div> 
+  <% end %>
+ 
+  <div class="form-group">
+    <%= f.label :vehicule_Title, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :vehiculeTitle, :class => 'form-control' , placeholder: "required", :required => true %>
+    </div>
+    <%=f.error_span(:vehiculeTitle) %>
+  </div>
+
+
+
+  <div class="form-group">
+    <%= f.label :vehicule_Price, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :vehiculePrice, :class => 'form-control', placeholder: "USD", type: "number" %>
+    </div>
+    <%=f.error_span(:vehiculePrice) %>
+  </div>
+
+
+
+
+
+
+<div class="form-group">
+      <%= f.label "Condition", class: 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= f.select(:condition, options_for_select([['New', 'new'], ['Used like new', 'Used like new'],
+        ['Used very good', 'Used very good'], ['Used acceptable Used fair', 'Used acceptable Used fair'] ]), { include_blank: true }) %>
+      </div>
+    </div>
+
+
+  <div class="form-group">
+    <%= f.label :available_now, :class => 'control-label col-lg-2' %>
+     
+     <div class="col-lg-10">
+     <%= f.radio_button :availableNow, 'true' %> 
+     <%= label :true, 'yes' %>
+      <%= f.radio_button :availableNow, 'false', :checked => true %>
+      <%= label :false, 'no' %>
+    </div>
+    <%=f.error_span(:availableNow) %>
+  </div>
+
+ 
+  
+
+  <div class="form-group">
+    <%= f.label :vehicule_photo, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-10"> <!-- class="col-sm-6" -->
+      <%= f.file_field :vehicule_photo, :required => true, autofocus: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                vehicules_path, :class => 'btn btn-default' %>
+    </div>
+  </div> 
+
+
+
+<% end %>
+
+
+
+<!-- ------------------------------- new test above--------------------------------------------------------------
+ -->
+
+
+
+
+<!-- -------------------------------
+
 <%= form_with(model: vehicule, local: true) do |form| %>
   <% if vehicule.errors.any? %>
     <div id="error_explanation">
@@ -9,7 +102,7 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %> 
 
   <div class="field">
     <%= form.label :vehiculeType %>
@@ -65,3 +158,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+ -->

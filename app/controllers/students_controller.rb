@@ -3,21 +3,19 @@ class StudentsController < ApplicationController
   before_action :set_student, only:[:show, :edit, :update, :destroy]
   #before_action :authorize_admin, only: [:index]
   
-  # def show
-  
-  #  @student = current_student 
-  
-  #  @book = @current_student.books
-  # end
+# def show
+#    @user = current_user 
+#    @joined_events = @user.joined_events
+#   end
 
-def show
-   @student = current_student
-   @book = @current_student.books
-  # @student = Student.find(params[:id])
-  # @book = Book.find(params[:id])
+  def show
+     @student = current_student
+     @book = @current_student.books
 
-end
+     @universities = JoinUniversitiesStudent.where("id = ?",current_student.id)
 
+     @join_universities_students = @student.join_universities_students    
+  end
 
 
   def index
@@ -29,7 +27,6 @@ end
 
      
   def edit
-    
 
   end 
 
@@ -41,18 +38,28 @@ end
     name += lname
   end
 
+    def destroy
+    @student = Student.find(params[:id])
+    @student.destroy
+
+    if @student.destroy
+        redirect_to root_url, notice: "Account deleted."
+    end
+  end
+
 
 
 
   private
 
-   def set_student
+  def set_student
     @student = Student.find_by_id(params[:student_id])
   end
 
   def user_params
     params.require(:student).permit(:fname, :lname, :email, :password, :password_confirmation, :current_password, :profilepic, :name, :pseudo)
   end
+  
 
 
 end

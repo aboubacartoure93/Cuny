@@ -1,0 +1,32 @@
+current directory: /Users/Aboubacar/Documents/Cuny/vendor/bundle/ruby/3.1.0/gems/puma-2.16.0/ext/puma_http11
+/Users/Aboubacar/.rbenv/versions/3.1.2/bin/ruby -I /Users/Aboubacar/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20220531-92061-3327h4.rb extconf.rb
+checking for BIO_read() in -lcrypto... no
+checking for BIO_read() in -llibeay32... no
+creating Makefile
+
+current directory: /Users/Aboubacar/Documents/Cuny/vendor/bundle/ruby/3.1.0/gems/puma-2.16.0/ext/puma_http11
+make DESTDIR\= clean
+
+current directory: /Users/Aboubacar/Documents/Cuny/vendor/bundle/ruby/3.1.0/gems/puma-2.16.0/ext/puma_http11
+make DESTDIR\=
+compiling http11_parser.c
+ext/http11/http11_parser.c:43:18: warning: unused variable 'puma_parser_en_main' [-Wunused-const-variable]
+static const int puma_parser_en_main = 1;
+                 ^
+1 warning generated.
+compiling io_buffer.c
+io_buffer.c:119:10: warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+  return rb_str_new(b->top, b->cur - b->top);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/Aboubacar/.rbenv/versions/3.1.2/include/ruby-3.1.0/ruby/internal/intern/string.h:1549:20: note: expanded from macro 'rb_str_new'
+      rb_str_new) ((str), (len)))
+                   ^~~~~
+1 warning generated.
+compiling mini_ssl.c
+mini_ssl.c:4:10: fatal error: 'rubyio.h' file not found
+#include <rubyio.h>
+         ^~~~~~~~~~
+1 error generated.
+make: *** [mini_ssl.o] Error 1
+
+make failed, exit code 2

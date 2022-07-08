@@ -1,52 +1,102 @@
-<%= form_with(model: electronics_computer, local: true) do |form| %>
-  <% if electronics_computer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(electronics_computer.errors.count, "error") %> prohibited this electronics_computer from being saved:</h2>
+<%= form_for @electronics_computer, :html => { :class => "form-horizontal book",  } do |f| %>
 
-      <ul>
-      <% electronics_computer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <% if @electronics_computer.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@electronics_computer.errors.count, "error") %> prohibited this electronic from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% @electronics_computer.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div> 
   <% end %>
-
-  <div class="field">
-    <%= form.label :electronicsTitle %>
-    <%= form.text_field :electronicsTitle, id: :electronics_computer_electronicsTitle %>
+ 
+  <div class="form-group">
+    <%= f.label :electronicsTitle, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :electronicsTitle, :class => 'form-control' , placeholder: "required", :required => true %>
+    </div>
+    <%=f.error_span(:electronicsTitle) %>
   </div>
 
-  <div class="field">
-    <%= form.label :electronicsPrice %>
-    <%= form.number_field :electronicsPrice, id: :electronics_computer_electronicsPrice %>
+
+
+  <div class="form-group">
+    <%= f.label :electronicsPrice, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :electronicsPrice, :class => 'form-control', placeholder: "USD", type: "number" %>
+    </div>
+    <%=f.error_span(:electronicsPrice) %>
   </div>
 
-  <div class="field">
-    <%= form.label :availableNow %>
-    <%= form.check_box :availableNow, id: :electronics_computer_availableNow %>
+
+
+
+
+
+<div class="form-group">
+      <%= f.label "Condition", class: 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= f.select(:condition, options_for_select([['New', 'new'], ['Used like new', 'Used like new'],
+        ['Used very good', 'Used very good'], ['Used acceptable Used fair', 'Used acceptable Used fair'] ]), { include_blank: true }) %>
+      </div>
+    </div>
+
+
+  <div class="form-group">
+    <%= f.label :available_now, :class => 'control-label col-lg-2' %>
+     
+     <div class="col-lg-10">
+     <%= f.radio_button :availableNow, 'true' %> 
+     <%= label :true, 'yes' %>
+      <%= f.radio_button :availableNow, 'false', :checked => true %>
+      <%= label :false, 'no' %>
+    </div>
+    <%=f.error_span(:availableNow) %>
   </div>
 
-  <div class="field">
-    <%= form.label :student_id %>
-    <%= form.number_field :student_id, id: :electronics_computer_student_id %>
+ 
+  
+
+  <div class="form-group">
+    <%= f.label :electronicsphoto, class: 'col-sm-2 control-label' %>
+    <div class="col-lg-10"> <!-- class="col-sm-6" -->
+      <%= f.file_field :electronicsphoto, :required => true, autofocus: true, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :electronisDescription %>
-    <%= form.text_area :electronisDescription, id: :electronics_computer_electronisDescription %>
-  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                electronics_computers_path, :class => 'btn btn-default' %>
+    </div>
+  </div> 
 
-  <div class="field">
-    <%= form.label :electronicsLocation %>
-    <%= form.text_field :electronicsLocation, id: :electronics_computer_electronicsLocation %>
-  </div>
 
-  <div class="field">
-    <%= form.label :condition %>
-    <%= form.text_field :condition, id: :electronics_computer_condition %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ------------------------------- new test above--------------------------------------------------------------
+ -->
+
+
+
+
+

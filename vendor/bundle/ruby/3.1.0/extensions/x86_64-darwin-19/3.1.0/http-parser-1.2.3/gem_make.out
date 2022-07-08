@@ -1,0 +1,5 @@
+current directory: /Users/Aboubacar/Documents/Cuny/vendor/bundle/ruby/3.1.0/gems/http-parser-1.2.3/ext
+/Users/Aboubacar/.rbenv/versions/3.1.2/bin/ruby -I/Users/Aboubacar/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -rrubygems /Users/Aboubacar/Documents/Cuny/vendor/bundle/ruby/3.1.0/gems/rake-13.0.6/exe/rake RUBYARCHDIR\=/Users/Aboubacar/Documents/Cuny/vendor/bundle/ruby/3.1.0/extensions/x86_64-darwin-19/3.1.0/http-parser-1.2.3 RUBYLIBDIR\=/Users/Aboubacar/Documents/Cuny/vendor/bundle/ruby/3.1.0/extensions/x86_64-darwin-19/3.1.0/http-parser-1.2.3
+clang -fexceptions -O -fno-omit-frame-pointer -fno-strict-aliasing -Wall -Wextra -O3   -o x86_64-darwin/http-parser/http_parser.o -c ./http-parser/http_parser.c
+mkdir -p x86_64-darwin/http-parser
+clang -bundle -o x86_64-darwin/libhttp-parser-ext.bundle x86_64-darwin/http-parser/http_parser.o -fexceptions 

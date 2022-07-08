@@ -64,27 +64,57 @@ config.assets.digest = true
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
  
-#config.action_mailer.default_url_options = {:host => 'localhost:3000'}
+config.action_mailer.default_url_options = {:host => 'localhost:3000'}
 
-config.action_mailer.default_url_options = { :host => 'cunyversity.com' }
+ config.action_mailer.default_url_options = { :host => 'cunyversity.com' }
+# ActionMailer::Base.smtp_settings = {
+#   :address        => "smtp.sendgrid.net",
+#   :port           => "587",
+#   :authentication => :plain,
+#   # :user_name      => ENV['SENDGRID_USERNAME'],
+#   # :password       => ENV['SENDGRID_PASSWORD'],
+#   # :domain         => ENV['SENDGRID_DOMAIN']
+
+#   :user_name      => "apikey",
+#   :password       => "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",
+#   :domain         => 'cunyversity.com'
+# }
+
+
+# ActionMailer::Base.smtp_settings = {
+#   :user_name => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+#   :password => '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', # This is the secret sendgrid API key which was issued during API key creation
+#   :domain => 'localhost:3000',
+#   :address => 'smtp.sendgrid.net',
+#   :port => 587,
+#   :authentication => :plain,
+#   :enable_starttls_auto => true
+# }
+
+
+ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-  :address        => "smtp.sendgrid.net",
-  :port           => "25",
-  :authentication => :plain,
-  # :user_name      => ENV['SENDGRID_USERNAME'],
-  # :password       => ENV['SENDGRID_PASSWORD'],
-  # :domain         => ENV['SENDGRID_DOMAIN']
-
-  :user_name      => "taboubacar",
-  :password       => "1Rightnow1",
-  :domain         => 'cunyversity.com'
+  user_name: 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+  password: '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', # This is the secret sendgrid API key which was issued during API key creation
+  domain: 'localhost:3000',
+  address: 'smtp.sendgrid.net',
+  port: 587,
+  tls: true,
+  ssl: true, 
+  authentication: :plain,
+  enable_starttls_auto: true
 }
-# config.action_mailer.delivery_method = :smtp
-# config.action_mailer.smtp_settings = {
-#   :address => "127.0.0.1",
-#   :port    => 25, 
-#   :domain  => 'yourdomain.com'
-# } 
+
+# ActionMailer::Base.delivery_method = :smtp
+# ActionMailer::Base.smtp_settings = {
+#   :address                => "mail.domain.net",
+#   :port                   => "465",
+#   :domain                 => "domain.net",
+#   :authentication         => :plain,
+#   :enable_starttls_auto   => true,
+#   :openssl_verify_mode    => "none",
+#   :user_name              => "notifier@domain.net",
+#   :password               => "password",
 
 
 
