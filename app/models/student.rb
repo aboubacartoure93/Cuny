@@ -17,8 +17,8 @@ class Student < ActiveRecord::Base
   has_many :conversations, :foreign_key => :sender_id, dependent: :destroy
   has_many :conversations, :foreign_key => :recipient_id, dependent: :destroy
   
-  has_many :join_universities_students
-  has_many :universities, through: :join_universities_students #, source: "university"
+  has_many :join_universities_students, dependent: :destroy
+  has_many :universities, through: :join_universities_students, dependent: :destroy #, source: "university"
 
   #has_many :joined_events, through: :events_users, source: "event"
 

@@ -3,7 +3,7 @@ CUNYversity: Cunyversity is a marketplace that allows student to exchange goods 
 Moto: Everything a student needs...!
 
 
-Day:6 (update when finish)
+Day:7 (update when finish)
 
 -----------------------------------------
 vim ~/.bashrc
@@ -31,7 +31,28 @@ https://myaccount.google.com/lesssecureapps (allowing less secure email with gma
   
  --------------------------To Do list - most important in the top---------------------------------------------------------   
 
-MVP********************
+I) MVP********************
+
+
+-an student can only create if university doesn't exist in already
+  an Admin can create, modify , delete, CRUD
+
+
+@@@@@@@@@@@@@@@@@
+-show item belonging to an university only
+-verify student email before a student join an university
+
+-make every student belong to public university (NO NEED, to fill every student database with same data)
+-If you don't belong to a university you can't post there
+-make admin join every university (will creating and updating)
+
+
+-verify student email before a student join an university
+-show item belonging to an university only
+
+-create complete design on paper (the final look)
+-finir chat box (remaining to improve design, notification sound, and 
+ notification for book buyer, but moving on for now)   OK
 
 (fix 2 models, controller, then views)
 -admin can create universties & modifies it, create post visible by everyone (Ads), send message to anyone
@@ -51,7 +72,8 @@ MVP********************
 -email sent in sign up (need to look good, not plain text)
 -change to Sendgrid
 
-- add location(google api), student can get recommendation for local business around...
+
+
 
 -housing for sale or rent(add to database and separate in views), create databae sell or rent
 
@@ -73,24 +95,9 @@ MVP********************
 
 MVP*****end**************
 
+II)------------------Improvement after MVP----------------------------------
 
-
--------------------Potential Problems------------------------------------
-
--help myprofessor
-- contact us if you don't your university or any problem 
-
-
-
-
-- start writing test
--cache memory cleaning
-
-
-------------------Improvement after MVP----------------------------------
--create complete design on paper (the final look)
--finir chat box (remaining to improve design, notification sound, and 
- notification for book buyer, but moving on for now)   OK
+- add location(google api), student can get recommendation for local business around...
 - student can create page and other students can follow
 -student create group other student can subscribe
 
@@ -107,6 +114,80 @@ MVP*****end**************
  -not receiving book id (for chat for book)
 
 
+-------------------------university database schema-----------------------------------------------------------
+
+
+many to many relationship
+
+every student below to Global University
+
+-university:
+-id
+-name
+-website
+-domain: edu (primary key)
+-photo
+
+an student can only create if university doesn't exist in already
+an Admin can create, modify , delete, CRUD
+
+
+
+@@@@@@@@@@@@@@@@@
+-show item belonging to an university only
+-verify student email before a student join an university
+
+-make every student belong to public university (NO NEED, to fill every student database with same data)
+-If you don't belong to a university you can't post there
+-make admin join every university (will creating and updating)
+
+
+
+-verify student email before a student join an university
+-show item belonging to an university only
+
+http://leah-eventhop.herokuapp.com/places/4/events/new?continue=%2Fplaces%2F4%2Fevents%2Fnew
+
+
+
+
+https://translate.google.com/?sl=en&tl=fr&text=%3C%25%20universities_array%20%3D%20University.all.map%20%7B%20%7Cuniversity%7C%20%5Buniversity.name%2C%20university.id%5D%20%7D%20%25%3E%0A%0A%20%3C%25%20universities_array%20%3D%20JoinUniversitiesStudent.all.map%20%7B%20%7Cstudent%7C%20%5Bstudent.university.name%5D%20%7D%20%25%3E%0A%0A%0A%20%20%20%20%20%20%20%20%3C%25%20universities_array%20%3D%20JoinUniversitiesStudent.all.map%20%7B%20%7Cstudent%7C%20%5Bstudent.university.name%2C%20current_student.id%5D%20%7D%20%25%3E%0A%0A%3C%25%20universities_array%20%3D%20%0A%20%20%20%20%20%20%20%20JoinUniversitiesStudent.where(%40student%20%3D%3Dcurrent_student.id).map%20%7B%20%7Cstudent%7C%20%5Bstudent.university.name%5D%20%7D%20%25%3E%0A0--------------------------%0A%0A%20%3C%25%20universities_array%20%3D%20%0A%20%20%20%20%20%20%20%20%20%20%20%20JoinUniversitiesStudent.all.map%20%7B%20%7Cstudent%7C%20%5Bstudent.university.name%2C%20current_student.id%5D%20%7D%20%25%3E%0A&op=translate
+
+ <% universities_array = 
+JoinUniversitiesStudent.all.map { |student| [student.university.name, current_student.id] } %>
+
+ <% universities_array = JoinUniversitiesStudent.all.map { |student| [student.university.name] } %>
+<%= f.select(:university_id, options_for_select(universities_array), { include_blank: true }) %>
+
+
+
+
+
+
+
+ -------------------------------------todo list 11/21/22----------------------------------------
+- one single place to create articles, have categeries (house, electronics,.....) as option
+-admin can delete all articles, universities, ....
+-electronics missing description and seller email
+-(all tutors sidebar not working)
+- simplify articles information need to create
+
+
+
+
+
+-------------------Potential Problems------------------------------------
+
+-help myprofessor
+- contact us if you don't your university or any problem 
+
+
+
+
+- start writing test
+-cache memory cleaning
+
+
 ---------------------------Adversitment----------------------------
 
 - send message to student in facebook  all selling group, cuny startup
@@ -114,9 +195,9 @@ MVP*****end**************
 
 
 II)-------------------------------------------------------
--Intership
+-In apps builds, porfolio profitership
 -Job offer
--3 to 5 big apps builds, porfolio profile (and couple static webpages)
+-3 to 5 bigle (and couple static webpages)
 
 
 III)------------Design--Idea general sur le design actuel-----------------------------------------
@@ -201,57 +282,20 @@ f.write(content)
 f.close()
 
 
--------------------------university database schema-----------------------------------------------------------
+-------------------------------
 
+<% if current_student[:admin] != true %>
+    <% if student_signed_in? && current_student.id != @university.student_id %>  <!-- good one here -->
 
-many to many relationship
+               <%= link_to "Send Message to university administration", "#", class: "btn btn-success btn-xs start-conversation",
+                                  "data-sid" => current_student.id, "data-rip" =>  @university.student_id %>
+                                                <!-- TO FIX:this not sending message to admin  -->
+          
+              <%= link_to "Click to Join this university", 
+              join_student_university_path(current_student.id, @university.id), method: "post" %>
 
-every student below to Global University
-
--university:
--id
--name
--website
--domain: edu (primary key)
--photo
-
-an student can only create if university doesn't exist in already
-an Admin can create, modify , delete, CRUD
-
-
-
-@@@@@@@@@@@@@@@@@
--show item belonging to an university only
--verify student email before a student join an university
-
-
--If you don't belong to a university you can't post there
-
-
-
--make every student belong to public university
--show item belonging to an university only
--verify student email before a student join an university
--make admin join every university
-
-
-
- <% universities_array = 
-JoinUniversitiesStudent.all.map { |student| [student.university.name, current_student.id] } %>
-
- <% universities_array = JoinUniversitiesStudent.all.map { |student| [student.university.name] } %>
-<%= f.select(:university_id, options_for_select(universities_array), { include_blank: true }) %>
-
-
-
-
-
-
-
- -------------------------------------deleted code --starting 06/03/22----------------------------------------
-
-
-
+    <% end -%>
+<% end -%>
 
 
 

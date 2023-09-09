@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_06_192811) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_200457) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
@@ -154,7 +154,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_192811) do
     t.datetime "last_sign_in_at", precision: nil
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "unversity"
     t.string "fname"
     t.string "lname"
     t.string "profilepic_file_name"
@@ -207,9 +206,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_192811) do
     t.string "domainEdu"
     t.string "university_photo_file_name"
     t.string "university_photo_content_type"
-    t.bigint "university_photo_file_size"
+    t.integer "university_photo_file_size"
     t.datetime "university_photo_updated_at"
-    t.integer "student_id"
   end
 
   create_table "vehicules", force: :cascade do |t|

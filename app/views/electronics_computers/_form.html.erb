@@ -16,7 +16,7 @@
   <% end %>
  
   <div class="form-group">
-    <%= f.label :electronicsTitle, :class => 'control-label col-lg-2' %>
+    <%= f.label :electronics_Title, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :electronicsTitle, :class => 'form-control' , placeholder: "required", :required => true %>
     </div>
@@ -26,7 +26,7 @@
 
 
   <div class="form-group">
-    <%= f.label :electronicsPrice, :class => 'control-label col-lg-2' %>
+    <%= f.label :electronics_Price, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :electronicsPrice, :class => 'form-control', placeholder: "USD", type: "number" %>
     </div>
@@ -63,7 +63,7 @@
   
 
   <div class="form-group">
-    <%= f.label :electronicsphoto, class: 'col-sm-2 control-label' %>
+    <%= f.label :electronics_photo, class: 'col-sm-2 control-label' %>
     <div class="col-lg-10"> <!-- class="col-sm-6" -->
       <%= f.file_field :electronicsphoto, :required => true, autofocus: true, class: 'form-control' %>
     </div>

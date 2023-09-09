@@ -1,5 +1,5 @@
 class UniversitiesController < ApplicationController
-  before_action :set_university, only: [:show, :edit, :update, :destroy, :join]
+  before_action :set_university, only: [:show, :edit, :update, :destroy, :join, :leave]
   before_action :authorize_admin!, only: [:edit, :update, :destroy]
   before_action :authenticate_student! 
 
@@ -78,6 +78,7 @@ class UniversitiesController < ApplicationController
       if @university.save
         format.html { redirect_to @university, notice: 'university was successfully created.' }
         format.json { render :show, status: :created, location: @university }
+        @university.students << current_student
       else
         format.html { render :new }
         format.json { render json: @university.errors, status: :unprocessable_entity }
@@ -95,6 +96,7 @@ class UniversitiesController < ApplicationController
       if @university.update(university_params)
         format.html { redirect_to @university, notice: 'University was successfully updated.' }
         format.json { render :show, status: :ok, location: @university }
+        @university.students << current_student
       else
         format.html { render :edit }
         format.json { render json: @university.errors, status: :unprocessable_entity }

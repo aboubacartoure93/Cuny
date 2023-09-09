@@ -68,18 +68,14 @@ if (location.href.indexOf('reload')==-1)
 
 
 
-<% if current_student[:admin] != true %>
-	<% if student_signed_in? && current_student.id != @university.student_id %>  <!-- good one here -->
 
-	           <%= link_to "Send Message to university administration", "#", class: "btn btn-success btn-xs start-conversation",
-	                              "data-sid" => current_student.id, "data-rip" =>  @university.student_id %>
-												<!-- TO FIX:this not sending message to admin  -->
-          
-              <%= link_to "Click to Join this university", 
-              join_student_university_path(current_student.id, @university.id), method: "post" %>
-
-	<% end -%>
-<% end -%>
+<% if @university.students.include? current_student %>
+        <p class="joinleave"><%= link_to 'leave this university', leave_student_university_path(@university), method: :delete %></p>
+    <% end %>
+  <!-- if there is a current user, and user is no in the event, show join event option, continues to the event page -->
+    <% if @university.students.exclude? current_student %>
+    <p class="joinleave"><%= link_to 'join university', join_student_university_path(@university, continue: university_url(@university)), method: :post %></p>
+    <% end %>
 
 
 

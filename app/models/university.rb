@@ -10,10 +10,12 @@ class University < ActiveRecord::Base
 	has_many :vehicules, :through => :students
 	has_many :other_articles, :through => :students
 
-	has_many :join_universities_students
-    has_many :students, :through => :join_universities_students
-    after_create :add_current_student_to_join_universities_students
-   
+	has_many :join_universities_students, dependent: :destroy
+    has_many :students, :through => :join_universities_students, dependent: :destroy
+    #after_create :add_current_student_to_join_universities_students
+    
+    validates :website,:domainEdu, uniqueness: { case_sensitive: false,  message: "This organisation exists already, check the list!" } 
+    
 
     has_attached_file :university_photo, styles: { medium: "223x300#", thumb: "100x100#" }, default_url: "/images/:style/missing.png"
     validates_attachment_content_type :university_photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
@@ -22,8 +24,10 @@ class University < ActiveRecord::Base
 
 
     def add_current_student_to_join_universities_students
-		students << student
+		#students << student
+		#join_universities_students << current_student
 	end
 
 end
 
+ 
